@@ -17,22 +17,11 @@ export default function MyDocument(props) {
         <meta name="theme-color" content={theme.palette.primary.main} />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta name="emotion-insertion-point" content="" />
-        <meta
-          name="application-name"
-          content="Boilerplate de Next.js con Material UI y i18next"
-        />
+        <meta name="application-name" content="Beachbutler" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta
-          name="apple-mobile-web-app-title"
-          content="Boilerplate de Next.js con Material UI y i18next"
-        />
-        <meta
-          name="description"
-          content="Este es un proyecto de inicio para crear aplicaciones con Next.js utilizando Material UI y i18next.
-          La aplicación también está diseñada para ser una PWA (Aplicación Web Progresiva),
-          lo que significa que se puede instalar en el dispositivo del usuario y funciona offline."
-        />
+        <meta name="apple-mobile-web-app-title" content="Beachbutler" />
+        <meta name="description" content="Beachbutler" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="msapplication-config" content="/icons/browserconfig.xml" />
@@ -77,38 +66,6 @@ export default function MyDocument(props) {
         />
         <link rel="shortcut icon" href="/favicon.ico" />
 
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content="https://yourdomain.com" />
-        <meta
-          name="twitter:title"
-          content="Boilerplate de Next.js con Material UI y i18next"
-        />
-        <meta name="twitter:description" content="Best PWA App in the world" />
-        <meta
-          name="twitter:image"
-          content="https://yourdomain.com/icons/android-chrome-192x192.png"
-        />
-        <meta name="twitter:creator" content="@creator" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:title"
-          content="Boilerplate de Next.js con Material UI y i18next"
-        />
-        <meta
-          property="og:description"
-          content="Este es un proyecto de inicio para crear aplicaciones con Next.js utilizando Material UI y i18next.
-          La aplicación también está diseñada para ser una PWA (Aplicación Web Progresiva),
-          lo que significa que se puede instalar en el dispositivo del usuario y funciona offline."
-        />
-        <meta
-          property="og:site_name"
-          content="Boilerplate de Next.js con Material UI y i18next"
-        />
-        <meta property="og:url" content="https://yourdomain.com" />
-        <meta
-          property="og:image"
-          content="https://yourdomain.com/icons/apple-touch-icon.png"
-        />
         {emotionStyleTags}
       </Head>
       <body>

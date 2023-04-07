@@ -1,8 +1,10 @@
-# Boilerplate de Next.js con Material UI y i18next
+# Beachbutler - aplicación para huéspedes
 
-Este es un proyecto de inicio para crear aplicaciones con Next.js utilizando Material UI y i18next.
-La aplicación también está diseñada para ser una PWA (Aplicación Web Progresiva),
-lo que significa que se puede instalar en el dispositivo del usuario y funciona offline.
+Beachbutler es una Progressive Web App (PWA) diseñada para los huéspedes del hotel que buscan una experiencia gastronómica sin complicaciones durante su estadía en la playa. Con esta aplicación, los usuarios pueden ordenar comida, bebidas y otros productos desde su dispositivo móvil, y recibirlos en la comodidad de su habitación o en la playa.
+
+La interfaz de usuario intuitiva y fácil de usar de Beachbutler permite a los huéspedes navegar por el menú, elegir sus platos y bebidas favoritas y realizar pedidos de manera rápida y sencilla. Además, la aplicación ofrece la opción de personalizar las órdenes, añadiendo o eliminando ingredientes y eligiendo el nivel de condimento deseado.
+
+Beachbutler también cuenta con una función de seguimiento de pedidos en tiempo real, lo que permite a los usuarios saber exactamente cuándo sus órdenes estarán listas para su entrega. Y gracias a la integración con el sistema de pagos del hotel, los huéspedes pueden realizar sus pagos de manera segura y conveniente desde la aplicación.
 
 ## Scripts
 
@@ -24,7 +26,6 @@ Los siguientes scripts están disponibles:
 1. Clona este repositorio.
 2. Ejecuta yarn o npm install para instalar las dependencias.
 3. Ejecuta yarn dev o npm run dev para iniciar el servidor de desarrollo.
-4. Comienza a desarrollar tu aplicación.
 
 ## Características adicionales
 

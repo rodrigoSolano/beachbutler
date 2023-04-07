@@ -1,6 +1,6 @@
 {
-  "name": "Boilerplate de Next.js con Material UI y i18next",
-  "short_name": "boilerplate",
+  "name": "Beachbutler",
+  "short_name": "beachbutler",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",

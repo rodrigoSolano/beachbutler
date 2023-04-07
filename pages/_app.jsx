@@ -24,7 +24,7 @@ function MyApp(props) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
-        <title>Boilerplate de Next.js con Material UI y i18next</title>
+        <title>Beachbutler</title>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
