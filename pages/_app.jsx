@@ -10,6 +10,7 @@ import { appWithTranslation } from 'next-i18next'
 
 import theme from '../src/theme'
 import createEmotionCache from '../src/utils/createEmotionCache'
+import MainLayout from '../src/components/shared/MainLayout'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
@@ -29,7 +30,9 @@ function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <MainLayout>
+          <Component {...pageProps} />
+        </MainLayout>
       </ThemeProvider>
     </CacheProvider>
   )
