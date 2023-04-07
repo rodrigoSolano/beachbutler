@@ -6,6 +6,7 @@ const OnboardingContainer = styled('div')(({ theme }) => ({
   backgroundImage: `url(${'/images/onboarding_background.png'})`,
   backgroundSize: 'cover',
   backgroundPosition: 'top',
+  backgroundRepeat: 'no-repeat',
 
   display: 'grid',
   gridTemplateRows: '65% 35%',
