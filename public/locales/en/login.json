@@ -1,0 +1,9 @@
+{
+  "back": "Back",
+  "next": "Next",
+  "one_step_login": "One step login",
+  "instructions_guest_data": "If you are our guest, you can log in with your last name in your reservation and room number.",
+  "last_name": "Last name",
+  "room_number": "Room number",
+  "error_on_login": "Sorry, we don’t have this name/number combination registered. If you think this might be an error, please contact the front desk."
+}

@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import { Stack } from '@mui/material'
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -13,7 +14,10 @@ import Separator from '../src/components/shared/Separator'
 import LanguageSelector from '../src/features/Onboarding/components/LanguageSelector'
 
 export default function Onboarding({ locale }) {
+  const router = useRouter()
   const { t } = useTranslation('onboarding')
+
+  const goToLogin = () => router.push('/login')
 
   return (
     <OnboardingContainer>
@@ -27,7 +31,7 @@ export default function Onboarding({ locale }) {
       </Stack>
       <Stack direction="column" gap={2} justifyContent="flex-end">
         <LanguageSelector t={t} locale={locale} />
-        <OnboardingNextButton text={t('continue')} />
+        <OnboardingNextButton text={t('continue')} onClick={goToLogin} />
       </Stack>
     </OnboardingContainer>
   )
