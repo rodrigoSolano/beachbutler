@@ -62,7 +62,9 @@ export default function AuthLayout({ children }) {
           </Typography>
         </Button>
       </Header>
-      <Body>{children}</Body>
+      <Body id="body" sx={{ paddingTop: 0 }}>
+        {children}
+      </Body>
       <Footer
         sx={{
           borderRadius: '16px 16px 0 0',
