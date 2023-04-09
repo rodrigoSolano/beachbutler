@@ -1,7 +1,9 @@
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import loginService from '../services/loginService'
 
 export default function useLogin() {
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(null)
@@ -14,6 +16,7 @@ export default function useLogin() {
         roomNumber,
       })
       setSuccess(true)
+      router.push('/allergies')
     } catch {
       setTimeout(() => setError(null), 3000)
       setError(true)
