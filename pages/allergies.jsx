@@ -39,7 +39,7 @@ export default function AllergiesPage({ allergies }) {
     setSelectedAllergies(newChecked)
   }
 
-  const onSkipClick = () => router.push('/dietRestrictions')
+  const onSkipClick = () => router.replace('/dietRestrictions')
 
   return (
     <AppLayout>

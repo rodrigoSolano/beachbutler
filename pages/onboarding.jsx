@@ -17,7 +17,7 @@ export default function Onboarding({ locale }) {
   const router = useRouter()
   const { t } = useTranslation('onboarding')
 
-  const goToLogin = () => router.push('/login')
+  const goToLogin = () => router.replace('/login')
 
   return (
     <OnboardingContainer>

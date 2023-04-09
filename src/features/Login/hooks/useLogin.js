@@ -16,7 +16,7 @@ export default function useLogin() {
         roomNumber,
       })
       setSuccess(true)
-      router.push('/allergies')
+      router.replace('/allergies')
     } catch {
       setTimeout(() => setError(null), 3000)
       setError(true)

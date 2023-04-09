@@ -31,7 +31,7 @@ export default function LoginPage() {
     })
   }
 
-  const back = () => router.push('/onboarding')
+  const back = () => router.replace('/onboarding')
 
   return (
     <AppLayout component="form" onSubmit={onSubmit}>

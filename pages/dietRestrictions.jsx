@@ -41,11 +41,11 @@ export default function DietRestrictios({ dietRestrictions }) {
     setSelectedDietRestrictions(newChecked)
   }
 
-  const back = () => router.push('/allergies')
+  const back = () => router.replace('/allergies')
 
-  const onSkipClick = () => router.push('/')
+  const onSkipClick = () => router.replace('/')
 
-  const onNextClick = () => router.push('/')
+  const onNextClick = () => router.replace('/')
 
   return (
     <AppLayout>

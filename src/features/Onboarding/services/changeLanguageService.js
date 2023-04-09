@@ -1,7 +1,7 @@
 import Router from 'next/router'
 
 export default function changeLanguageService(language) {
-  Router.push(
+  Router.replace(
     {
       pathname: Router.pathname,
       query: Router.query,
