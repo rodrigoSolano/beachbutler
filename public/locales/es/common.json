@@ -1,3 +1,6 @@
 {
-  "welcome": "Bienvenido!"
+  "home": "Inicio",
+  "menu": "Menu",
+  "orders": "Pedidos",
+  "profile": "Perfil"
 }

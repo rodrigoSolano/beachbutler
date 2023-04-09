@@ -7,6 +7,7 @@ export default function MainLayout({ children }) {
         overflow: 'hidden',
         maxWidth: '600px',
         margin: '0 auto',
+        backgroundColor: '#F8F8F8',
       }}
     >
       {children}

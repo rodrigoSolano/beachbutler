@@ -1,16 +1,16 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import AuthLayout from '../src/components/shared/AuthLayout'
+import AuthLayout from '../../src/components/shared/AuthLayout'
 
-export default function Index() {
+export default function Orders() {
   return (
     <div>
-      <h1>Home</h1>
+      <h1>Orders</h1>
     </div>
   )
 }
 
-Index.getLayout = (page) => <AuthLayout>{page}</AuthLayout>
+Orders.getLayout = (page) => <AuthLayout>{page}</AuthLayout>
 
 export async function getServerSideProps({ locale }) {
   return {
