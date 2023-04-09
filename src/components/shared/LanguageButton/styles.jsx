@@ -14,7 +14,7 @@ const Container = styled(Box, {
 
   backgroundColor: '#FFFFFF',
 
-  borderRadius: theme.spacing(0.5),
+  borderRadius: theme.spacing(1),
 
   transition: 'all 0.3s ease',
 
