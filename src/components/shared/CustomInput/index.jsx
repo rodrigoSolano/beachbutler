@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { styled } from '@mui/material'
 
-import { DMSans } from '../../../../theme'
+import { DMSans } from '../../../theme'
 
 const Input = styled('input', {
   shouldForwardProp: (prop) => prop !== 'error',
@@ -27,7 +27,7 @@ const Input = styled('input', {
   }),
 }))
 
-export default function LoginInput({ placeholder, error, ...props }) {
+export default function CustomInput({ placeholder, error, ...props }) {
   const [isFocused, setIsFocused] = useState(false)
 
   const handleFocus = () => setIsFocused(true)
