@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Box, Stack, Typography, useTheme } from '@mui/material'
+import { Stack, Typography, useTheme } from '@mui/material'
 
 import AppLayout from '../src/components/shared/AppLayout/AppLayout'
 import Header from '../src/components/shared/AppLayout/Header'
@@ -10,36 +10,42 @@ import Body from '../src/components/shared/AppLayout/Body'
 import Footer from '../src/components/shared/AppLayout/Footer'
 import AppLogo from '../src/components/shared/AppLogo'
 import NextButton from '../src/components/shared/NextButton'
-import SkipButton from '../src/components/shared/SkipButton'
 
 import getAllergiesService from '../src/features/Allergies/services/getAllergiesService'
 import allergiesAdapter from '../src/features/Allergies/adapters/allergiesAdapter'
 import CustomListItem from '../src/components/shared/CustomListItem'
 import CustomList from '../src/components/shared/CustomList'
+import BackButton from '../src/components/shared/BackButton'
+import SkipButton from '../src/components/shared/SkipButton'
 
-export default function AllergiesPage({ allergies }) {
-  const [selectedAllergies, setSelectedAllergies] = useState([])
-  const skip = selectedAllergies.length === 0
+export default function DietRestrictios({ dietRestrictions }) {
+  const [selectedDietRestrictions, setSelectedDietRestrictions] = useState([])
+  const skip = selectedDietRestrictions.length === 0
   const theme = useTheme()
   const router = useRouter()
-  const { t } = useTranslation('allergies')
+  const { t } = useTranslation('dietRestrictions')
 
-  const isChecked = (allergy) =>
-    selectedAllergies.findIndex(
-      (selectedAllergy) => selectedAllergy.id === allergy.id
+  const isChecked = (dietRestriction) =>
+    selectedDietRestrictions.findIndex(
+      (selectedDietRestriction) =>
+        selectedDietRestriction.id === dietRestriction.id
     ) !== -1
 
   const handleToggle = (value) => () => {
-    const currentIndex = selectedAllergies.indexOf(value)
-    const newChecked = [...selectedAllergies]
+    const currentIndex = selectedDietRestrictions.indexOf(value)
+    const newChecked = [...selectedDietRestrictions]
 
     if (currentIndex === -1) newChecked.push(value)
     else newChecked.splice(currentIndex, 1)
 
-    setSelectedAllergies(newChecked)
+    setSelectedDietRestrictions(newChecked)
   }
 
-  const onSkipClick = () => router.push('/dietRestrictions')
+  const back = () => router.push('/allergies')
+
+  const onSkipClick = () => router.push('/')
+
+  const onNextClick = () => router.push('/')
 
   return (
     <AppLayout>
@@ -48,18 +54,18 @@ export default function AllergiesPage({ allergies }) {
       </Header>
       <Body>
         <Typography color="gray.500" fontWeight={500} gutterBottom>
-          {t('allergies')}
+          {t('diet_restrictions')}
         </Typography>
         <Typography variant="body2" color="gray.200" fontWeight={400}>
-          {t('allergies_instructions')}
+          {t('diet_restrictions_instructions')}
         </Typography>
         <CustomList>
-          {allergies.map((allergy) => (
+          {dietRestrictions.map((dietRestriction) => (
             <CustomListItem
-              key={allergy.id}
-              title={allergy.name}
-              onClick={handleToggle(allergy)}
-              isChecked={isChecked(allergy)}
+              key={dietRestriction.id}
+              title={dietRestriction.name}
+              onClick={handleToggle(dietRestriction)}
+              isChecked={isChecked(dietRestriction)}
             />
           ))}
         </CustomList>
@@ -72,9 +78,12 @@ export default function AllergiesPage({ allergies }) {
           alignItems="center"
           justifyContent="center"
         >
-          <Box width="100%" />
-          {skip && <SkipButton title={t('skip')} onClick={onSkipClick} />}
-          {!skip && <NextButton title={t('next')} onClick={onSkipClick} />}
+          <BackButton title={t('back')} onClick={back} />
+          {skip ? (
+            <SkipButton title={t('skip')} onClick={onSkipClick} />
+          ) : (
+            <NextButton title={t('next')} onClick={onNextClick} />
+          )}
         </Stack>
       </Footer>
     </AppLayout>
@@ -82,13 +91,13 @@ export default function AllergiesPage({ allergies }) {
 }
 
 export async function getServerSideProps({ locale }) {
-  const allergiesData = await getAllergiesService({})
-  const allergies = await allergiesAdapter(allergiesData)
+  const dietRestrictionsData = await getAllergiesService({})
+  const dietRestrictions = await allergiesAdapter(dietRestrictionsData)
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['allergies'])),
+      ...(await serverSideTranslations(locale, ['dietRestrictions'])),
       locale,
-      allergies,
+      dietRestrictions,
     },
   }
 }

@@ -84,8 +84,8 @@ export default function LoginPage() {
       </Body>
       <Footer border shadow center>
         <Stack
-          sx={{ width: '100%', height: '40px', padding: '16px 4px' }}
-          gap={3}
+          sx={{ width: '100%', height: '40px', padding: '8px' }}
+          gap={1}
           direction="row"
           alignItems="center"
           justifyContent="space-between"
