@@ -6,7 +6,7 @@ export default function OnboardingNextButton({ text, onClick = () => {} }) {
       color="primary"
       border="medium"
       variant="contained"
-      sx={{ minWidth: '100px', alignSelf: 'flex-end' }}
+      sx={{ minWidth: '120px', alignSelf: 'flex-end' }}
       onClick={onClick}
     >
       <Typography variant="button" textTransform="none">
