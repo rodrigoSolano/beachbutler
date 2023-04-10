@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Skeleton, Typography, styled } from '@mui/material'
 
 const Container = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -13,7 +13,17 @@ const Container = styled(Box)(({ theme }) => ({
   borderRadius: theme.spacing(3),
 }))
 
-export default function DishCategory({ category }) {
+export default function DishCategory({ category, isLoading }) {
+  if (isLoading)
+    return (
+      <Skeleton
+        variant="rectangular"
+        width={72}
+        height={24}
+        sx={{ borderRadius: '24px' }}
+      />
+    )
+
   return (
     <Container>
       <Typography

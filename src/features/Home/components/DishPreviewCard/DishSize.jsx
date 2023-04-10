@@ -1,4 +1,4 @@
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Skeleton, Typography, styled } from '@mui/material'
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt'
 
 const Container = styled(Box)(({ theme }) => ({
@@ -16,7 +16,17 @@ const Container = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[60]}`,
 }))
 
-export default function DishSize({ size }) {
+export default function DishSize({ size, isLoading }) {
+  if (isLoading)
+    return (
+      <Skeleton
+        variant="rectangular"
+        width={72}
+        height={24}
+        sx={{ borderRadius: '24px' }}
+      />
+    )
+
   return (
     <Container>
       <Typography

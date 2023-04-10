@@ -1,6 +1,16 @@
-import { Typography } from '@mui/material'
+import { Skeleton, Typography } from '@mui/material'
 
-export default function DishDescription({ description }) {
+export default function DishDescription({ description, isLoading }) {
+  if (isLoading)
+    return (
+      <Skeleton
+        variant="rectangular"
+        width={148}
+        height={32}
+        sx={{ marginTop: '8px', borderRadius: '8px' }}
+      />
+    )
+
   return (
     <Typography
       variant="button"

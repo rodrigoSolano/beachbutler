@@ -3,18 +3,17 @@ import { Virtual } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
-import 'swiper/css/effect-fade'
 
 import DishPreviewCard from '../DishPreviewCard'
 import usePreviewDishes from '../../hooks/usePreviewDishes'
 
 export default function DishPreviewCarousel({ section }) {
-  const { dishes } = usePreviewDishes({
+  const { dishes, isLoading } = usePreviewDishes({
     sectionId: section.id,
   })
 
   return (
-    <Box sx={{ marginLeft: '-16px', marginRight: '-16px' }}>
+    <Box sx={{ marginLeft: '-16px', marginRight: '-16px', minHeight: 237 }}>
       <Swiper
         modules={[Virtual]}
         spaceBetween={8}
@@ -25,7 +24,7 @@ export default function DishPreviewCarousel({ section }) {
       >
         {dishes.map((dish, index) => (
           <SwiperSlide key={dish} virtualIndex={index}>
-            <DishPreviewCard dish={dish} />
+            <DishPreviewCard dish={dish} isLoading={isLoading} />
           </SwiperSlide>
         ))}
       </Swiper>

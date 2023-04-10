@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import getPreviewDishesService from '../services/getPreviewDishesService'
 
 export default function usePreviewDishes({ section }) {
-  const [dishes, setDishes] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [dishes, setDishes] = useState([1, 2, 3, 4])
+  const [isLoading, setIsLoading] = useState(true)
 
   const fetchDishes = async () => {
     setIsLoading(true)

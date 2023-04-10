@@ -1,6 +1,15 @@
-import { Typography } from '@mui/material'
+import { Skeleton, Typography } from '@mui/material'
 
-export default function DishName({ name }) {
+export default function DishName({ name, isLoading }) {
+  if (isLoading)
+    return (
+      <Skeleton
+        variant="rectangular"
+        width={148}
+        sx={{ marginTop: '8px', borderRadius: '8px', height: 37 }}
+      />
+    )
+
   return (
     <Typography
       variant="body2"
