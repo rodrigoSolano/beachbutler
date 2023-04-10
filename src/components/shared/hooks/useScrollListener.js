@@ -1,6 +1,4 @@
-// @ts-check
-/* eslint-disable */
-import { useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 /**
  * Custom hook that listens for scrolling events and applies styles to a provided ref element when a minimum scroll position is reached.
@@ -9,25 +7,40 @@ import { useEffect } from 'react'
  * @param {object} [styles={}] - The styles to apply when the minimum scroll position is reached.
  */
 export default function useScrollListener(ref, minScroll = 0, styles = {}) {
-  useEffect(() => {
-    const handleScroll = () => {
-      const bodyContainer = document.querySelector('#body')
-      if (bodyContainer.scrollTop > minScroll) {
-        Object.entries(styles).forEach(([property, value]) => {
-          ref.current.style[property] = value
-        })
-      } else {
-        Object.keys(styles).forEach(
-          (property) => (ref.current.style[property] = '')
-        )
-      }
-    }
+  const [bodyContainer, setBodyContainer] = useState(null)
 
-    const bodyContainer = document.querySelector('#body')
+  const handleScroll = useCallback(() => {
+    if (bodyContainer.scrollTop > minScroll) {
+      Object.entries(styles).forEach(([property, value]) => {
+        const refCurrent = ref.current
+        if (refCurrent) {
+          refCurrent.style[property] = value
+        }
+      })
+    } else {
+      Object.keys(styles).forEach((property) => {
+        const refCurrent = ref.current
+        if (refCurrent) {
+          refCurrent.style[property] = ''
+        }
+      })
+    }
+  }, [bodyContainer?.scrollTop, minScroll, ref, styles])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return () => {}
+    const body = document.querySelector('#body')
+    setBodyContainer(body)
+    return () => {}
+  }, [])
+
+  useEffect(() => {
+    if (!bodyContainer) return () => {}
+
     bodyContainer.addEventListener('scroll', handleScroll)
 
     return () => {
       bodyContainer.removeEventListener('scroll', handleScroll)
     }
-  }, [ref, minScroll, styles])
+  }, [ref, minScroll, styles, bodyContainer, handleScroll])
 }
