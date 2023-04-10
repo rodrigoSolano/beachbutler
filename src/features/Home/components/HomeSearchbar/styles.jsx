@@ -8,8 +8,6 @@ const SearchbarContainer = styled(Box)(({ theme }) => ({
   marginLeft: theme.spacing(-2),
   marginRight: theme.spacing(-2),
   marginBottom: theme.spacing(1),
-
-  transition: 'background-color 0.3s ease-in-out',
 }))
 
 export default SearchbarContainer

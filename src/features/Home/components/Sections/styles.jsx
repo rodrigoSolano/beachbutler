@@ -17,7 +17,6 @@ const Wrapper = styled(Box)(({ theme }) => ({
   },
 
   borderBottom: `1px solid ${theme.palette.grey[60]}`,
-  transition: 'background-color 0.3s ease-in-out',
   backgroundColor: 'transparent',
   zIndex: 10,
 }))
