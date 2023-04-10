@@ -2,11 +2,13 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import AuthLayout from '../src/components/shared/AuthLayout'
 import HomeSearchbar from '../src/features/Home/components/HomeSearchbar'
+import BannerCarousel from '../src/features/Home/components/BannerCarousel'
 
 export default function Index() {
   return (
     <>
       <HomeSearchbar />
+      <BannerCarousel />
       <div
         style={{
           height: '1000vh',
