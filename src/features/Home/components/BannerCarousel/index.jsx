@@ -1,5 +1,5 @@
+import { Box } from '@mui/material'
 import React from 'react'
-import { EffectFade } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -13,21 +13,23 @@ export default function BannerCarousel() {
   const { banners, isLoading } = useBanners()
 
   return (
-    <Swiper
-      loop
-      effect="fade"
-      modules={[EffectFade]}
-      autoplay={{
-        delay: 1000,
-        disableOnInteraction: false,
-      }}
-    >
-      {banners.map((banner) => (
-        <SwiperSlide key={banner.id}>
-          <Banner banner={banner} />
-        </SwiperSlide>
-      ))}
-      {isLoading && <BannerSkeleton />}
-    </Swiper>
+    <Box sx={{ marginLeft: '-16px', marginRight: '-16px' }}>
+      <Swiper
+        spaceBetween={8}
+        slidesPerView={1.1}
+        slidesOffsetAfter={16}
+        slidesOffsetBefore={16}
+        autoplay={{
+          delay: 500,
+        }}
+      >
+        {banners.map((banner) => (
+          <SwiperSlide key={banner.id}>
+            <Banner banner={banner} />
+          </SwiperSlide>
+        ))}
+        {isLoading && <BannerSkeleton />}
+      </Swiper>
+    </Box>
   )
 }
