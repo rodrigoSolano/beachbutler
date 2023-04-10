@@ -1,17 +1,29 @@
 import { useState, useEffect } from 'react'
 import getPreviewDishesService from '../services/getPreviewDishesService'
 
-export default function usePreviewDishes({ sectionId }) {
+export default function usePreviewDishes({ section }) {
   const [dishes, setDishes] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const fetchDishes = async () => {
-    const response = await getPreviewDishesService({})
-    setDishes(response)
+    setIsLoading(true)
+    try {
+      const response = await getPreviewDishesService({
+        filter: { section },
+      })
+      setDishes(response)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   useEffect(() => {
     fetchDishes()
-  }, [sectionId])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [section])
 
-  return { dishes }
+  return { dishes, isLoading }
 }

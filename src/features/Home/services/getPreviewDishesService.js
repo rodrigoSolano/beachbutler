@@ -1,97 +1,18 @@
-/* eslint-disable */
-const DISHES = [
-  {
-    id: '5f0b0b9b0b',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0c',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0d',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0e',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0f',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0g',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0h',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0i',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0j',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-  {
-    id: '5f0b0b9b0k',
-    name: 'Volutpat massa odio suspendisse tortor',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    thumbnail: '/images/dishes/dish_thumbnail_1.png',
-    size: 2,
-    category: 'Pasta',
-  },
-]
+import axios from 'axios'
+import previewDishesAdapter from '../adapters/previewDishesAdapter'
 
-export default function getPreviewDishesService() {
-  return DISHES
+const url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php'
+
+export default async function getPreviewDishesService({
+  filter: { section = 'Ordinary Drink' },
+}) {
+  const { data } = await axios.get(url, {
+    params: {
+      c: section,
+    },
+  })
+
+  const dishes = await previewDishesAdapter({ dishesData: data.drinks })
+
+  return dishes
 }

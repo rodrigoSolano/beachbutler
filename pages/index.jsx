@@ -5,7 +5,7 @@ import AuthLayout from '../src/components/shared/AuthLayout'
 import HomeSearchbar from '../src/features/Home/components/HomeSearchbar'
 import BannerCarousel from '../src/features/Home/components/BannerCarousel'
 import Sections from '../src/features/Home/components/Sections'
-import getSectionsService from '../src/features/Home/services/getSectionsService'
+import getHomeSectionsService from '../src/features/Home/services/getHomeSectionsService'
 import Section from '../src/features/Home/components/Section'
 import DishPreviewCarousel from '../src/features/Home/components/DishPreviewCarousel'
 
@@ -31,7 +31,7 @@ export default function Home({ sections }) {
 Home.getLayout = (page) => <AuthLayout>{page}</AuthLayout>
 
 export async function getServerSideProps({ locale }) {
-  const sections = await getSectionsService({})
+  const sections = await getHomeSectionsService({})
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'home'])),
