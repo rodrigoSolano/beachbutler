@@ -1,4 +1,5 @@
 import { Box } from '@mui/material'
+import { Virtual } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -13,14 +14,21 @@ export default function DishPreviewCarousel({ section }) {
   })
 
   return (
-    <Swiper loop slidesPerView={2}>
-      {dishes.map((dish) => (
-        <SwiperSlide key={dish.id}>
-          <Box sx={{ padding: '0 8px' }}>
+    <Box sx={{ marginLeft: '-16px', marginRight: '-16px' }}>
+      <Swiper
+        modules={[Virtual]}
+        spaceBetween={8}
+        slidesPerView={2.3}
+        slidesOffsetAfter={16}
+        slidesOffsetBefore={16}
+        virtual
+      >
+        {dishes.map((dish, index) => (
+          <SwiperSlide key={dish} virtualIndex={index}>
             <DishPreviewCard dish={dish} />
-          </Box>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
   )
 }
