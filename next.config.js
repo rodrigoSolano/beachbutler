@@ -7,4 +7,7 @@ module.exports = withPWA({
   // next.js config
   reactStrictMode: true,
   i18n,
+  images: {
+    domains: ['www.thecocktaildb.com'],
+  },
 })
