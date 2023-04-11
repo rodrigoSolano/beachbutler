@@ -1,3 +1,10 @@
 {
-  "extends": ["airbnb", "next/core-web-vitals", "prettier"]
+  "extends": ["airbnb", "next/core-web-vitals", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": "./src"
+      }
+    }
+  }
 }
