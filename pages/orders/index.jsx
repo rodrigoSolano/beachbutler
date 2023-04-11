@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import AuthLayout from '../../src/components/AuthLayout'
+import AuthLayout from 'components/AuthLayout'
 
 export default function Orders() {
   return (

@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material'
-import { DMSerifDisplay } from '../../../../theme'
+import { DMSerifDisplay } from 'theme'
 
 export default function OnboardingWelcome({ welcome }) {
   return (

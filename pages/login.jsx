@@ -3,18 +3,18 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Stack, Typography, useTheme } from '@mui/material'
 
-import CustomInput from '../src/components/CustomInput'
+import CustomInput from 'components/CustomInput'
 
-import AppLayout from '../src/components/AppLayout/AppLayout'
-import Header from '../src/components/AppLayout/Header'
-import Body from '../src/components/AppLayout/Body'
-import Footer from '../src/components/AppLayout/Footer'
-import AppLogo from '../src/components/AppLogo'
+import AppLayout from 'components/AppLayout/AppLayout'
+import Header from 'components/AppLayout/Header'
+import Body from 'components/AppLayout/Body'
+import Footer from 'components/AppLayout/Footer'
+import AppLogo from 'components/AppLogo'
 
-import BackButton from '../src/components/BackButton'
-import NextButton from '../src/components/NextButton'
+import BackButton from 'components/BackButton'
+import NextButton from 'components/NextButton'
 
-import useLogin from '../src/features/Login/hooks/useLogin'
+import useLogin from 'features/Login/hooks/useLogin'
 
 export default function LoginPage() {
   const { t } = useTranslation('login')

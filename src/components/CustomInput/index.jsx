@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { styled } from '@mui/material'
 
-import { DMSans } from '../../theme'
+import { DMSans } from 'theme'
 
 const Input = styled('input', {
   shouldForwardProp: (prop) => prop !== 'error',

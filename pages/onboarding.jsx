@@ -4,14 +4,14 @@ import { Stack } from '@mui/material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
-import OnboardingNextButton from '../src/features/Onboarding/components/OnboardingNextButton'
-import OnboardingContainer from '../src/features/Onboarding/components/OnboardingContainer'
-import OnboardingWelcome from '../src/features/Onboarding/components/OnboardingWelcome'
-import OnboardingSlogan from '../src/features/Onboarding/components/OnboardingSlogan'
-import OnboardingLogo from '../src/features/Onboarding/components/OnboardingLogo'
+import OnboardingNextButton from 'features/Onboarding/components/OnboardingNextButton'
+import OnboardingContainer from 'features/Onboarding/components/OnboardingContainer'
+import OnboardingWelcome from 'features/Onboarding/components/OnboardingWelcome'
+import OnboardingSlogan from 'features/Onboarding/components/OnboardingSlogan'
+import OnboardingLogo from 'features/Onboarding/components/OnboardingLogo'
 
-import Separator from '../src/components/Separator'
-import LanguageSelector from '../src/features/Onboarding/components/LanguageSelector'
+import Separator from 'components/Separator'
+import LanguageSelector from 'features/Onboarding/components/LanguageSelector'
 
 export default function Onboarding({ locale }) {
   const router = useRouter()

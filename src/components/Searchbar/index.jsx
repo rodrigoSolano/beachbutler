@@ -2,7 +2,7 @@ import { useState } from 'react'
 // eslint-disable-next-line camelcase
 import { Open_Sans } from 'next/font/google'
 import { Box, styled } from '@mui/material'
-import MagnifyingGlassIcon from '../Icons/MagnifyingGlassIcon'
+import MagnifyingGlassIcon from 'components/Icons/MagnifyingGlassIcon'
 
 const OpenSans = Open_Sans({
   display: 'swap',

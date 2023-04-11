@@ -8,9 +8,9 @@ import { ThemeProvider } from '@mui/material/styles'
 import { CacheProvider } from '@emotion/react'
 import { appWithTranslation } from 'next-i18next'
 
-import theme from '../src/theme'
-import createEmotionCache from '../src/utils/createEmotionCache'
-import MainLayout from '../src/components/MainLayout'
+import theme from 'theme'
+import createEmotionCache from 'utils/createEmotionCache'
+import MainLayout from 'components/MainLayout'
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache()
