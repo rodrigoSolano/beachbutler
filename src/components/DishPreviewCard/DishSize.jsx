@@ -16,19 +16,19 @@ const Container = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.grey[60]}`,
 }))
 
-export default function DishSize({ size, isLoading }) {
+export default function DishSize({ size, isLoading, maxWidth = '100%' }) {
   if (isLoading)
     return (
       <Skeleton
         variant="rectangular"
-        width={72}
+        width="100%"
         height={24}
-        sx={{ borderRadius: '24px' }}
+        sx={{ borderRadius: '24px', maxWidth }}
       />
     )
 
   return (
-    <Container>
+    <Container sx={{ maxWidth }}>
       <Typography
         fontSize="0.75rem"
         color="gray.300"

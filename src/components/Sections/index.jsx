@@ -6,13 +6,13 @@ import useSections from './useSections'
 
 import { Wrapper, Container, SectionContainer } from './styles'
 
-export default function Sections({ sections = [] }) {
+export default function Sections({ sections = [], minScroll = 155 }) {
   const ref = useRef(null)
   const { currentSectionActive, onClickSection } = useSections()
 
   const styles = { backgroundColor: 'white' }
 
-  useScrollListener(ref, 155, styles)
+  useScrollListener(ref, minScroll, styles)
 
   const isActive = (section) => currentSectionActive === section.anchor
 

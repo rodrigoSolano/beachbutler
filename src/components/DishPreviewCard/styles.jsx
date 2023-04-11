@@ -1,8 +1,9 @@
 import { Box, styled } from '@mui/material'
 
 const Container = styled(Box)(({ theme }) => ({
-  width: '156px',
-  height: '237px',
+  width: '100%',
+  height: 'auto',
+  aspectRatio: '156/237',
   padding: '4px',
   borderRadius: theme.spacing(1),
   backgroundColor: theme.palette.common.white,

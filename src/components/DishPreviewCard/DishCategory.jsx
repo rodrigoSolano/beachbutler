@@ -18,7 +18,7 @@ export default function DishCategory({ category, isLoading }) {
     return (
       <Skeleton
         variant="rectangular"
-        width={72}
+        width="100%"
         height={24}
         sx={{ borderRadius: '24px' }}
       />

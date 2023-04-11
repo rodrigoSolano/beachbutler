@@ -5,7 +5,7 @@ export default function DishName({ name, isLoading }) {
     return (
       <Skeleton
         variant="rectangular"
-        width={148}
+        width="100%"
         sx={{ marginTop: '8px', borderRadius: '8px', height: 37 }}
       />
     )

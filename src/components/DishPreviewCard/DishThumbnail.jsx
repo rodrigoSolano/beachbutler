@@ -1,24 +1,29 @@
 import Image from 'next/image'
-import { Skeleton } from '@mui/material'
+import { Skeleton, styled } from '@mui/material'
+
+const Container = styled('div')(() => ({
+  width: '100%',
+  height: 'auto',
+  aspectRatio: '4/3',
+  position: 'relative',
+  '& > *:first-of-type': {
+    width: '100%',
+    height: '100%',
+    borderRadius: '4px',
+  },
+}))
 
 export default function DishThumbnail({ thumbnail, isLoading }) {
   if (isLoading)
     return (
-      <Skeleton
-        variant="rectangular"
-        width={148}
-        height={104}
-        sx={{ borderRadius: '8px' }}
-      />
+      <Container>
+        <Skeleton variant="rectangular" />
+      </Container>
     )
 
   return (
-    <Image
-      src={thumbnail}
-      alt={thumbnail}
-      width={148}
-      height={104}
-      style={{ borderRadius: '6px' }}
-    />
+    <Container>
+      <Image fill src={thumbnail} alt={thumbnail} />
+    </Container>
   )
 }
