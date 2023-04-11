@@ -4,7 +4,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import ScrollSearchbar from '../src/components/ScrollSearchbar'
 import Sections from '../src/components/Sections'
 import Section from '../src/components/Section'
-import AuthLayout from '../src/components/shared/AuthLayout'
+import AuthLayout from '../src/components/AuthLayout'
 
 import BannerCarousel from '../src/features/Home/components/BannerCarousel'
 import DishPreviewCarousel from '../src/features/Home/components/DishPreviewCarousel'

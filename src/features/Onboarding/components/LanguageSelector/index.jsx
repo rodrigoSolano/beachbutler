@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@mui/material'
 
-import LanguageButton from '../../../../components/shared/LanguageButton'
+import LanguageButton from '../LanguageButton'
 import changeLanguageService from '../../services/changeLanguageService'
 
 const AVAILABLE_LANGUAGES = ['en', 'es']

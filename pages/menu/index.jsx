@@ -1,6 +1,6 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
-import AuthLayout from '../../src/components/shared/AuthLayout'
+import AuthLayout from '../../src/components/AuthLayout'
 
 export default function Menu() {
   return (

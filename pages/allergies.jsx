@@ -4,18 +4,18 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Box, Stack, Typography, useTheme } from '@mui/material'
 
-import AppLayout from '../src/components/shared/AppLayout/AppLayout'
-import Header from '../src/components/shared/AppLayout/Header'
-import Body from '../src/components/shared/AppLayout/Body'
-import Footer from '../src/components/shared/AppLayout/Footer'
-import AppLogo from '../src/components/shared/AppLogo'
-import NextButton from '../src/components/shared/NextButton'
-import SkipButton from '../src/components/shared/SkipButton'
+import AppLayout from '../src/components/AppLayout/AppLayout'
+import Header from '../src/components/AppLayout/Header'
+import Body from '../src/components/AppLayout/Body'
+import Footer from '../src/components/AppLayout/Footer'
+import AppLogo from '../src/components/AppLogo'
+import NextButton from '../src/components/NextButton'
+import SkipButton from '../src/components/SkipButton'
 
 import getAllergiesService from '../src/features/Allergies/services/getAllergiesService'
 import allergiesAdapter from '../src/features/Allergies/adapters/allergiesAdapter'
-import CustomListItem from '../src/components/shared/CustomListItem'
-import CustomList from '../src/components/shared/CustomList'
+import CustomListItem from '../src/components/CustomListItem'
+import CustomList from '../src/components/CustomList'
 
 export default function AllergiesPage({ allergies }) {
   const [selectedAllergies, setSelectedAllergies] = useState([])

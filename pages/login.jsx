@@ -3,16 +3,16 @@ import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Stack, Typography, useTheme } from '@mui/material'
 
-import CustomInput from '../src/components/shared/CustomInput'
+import CustomInput from '../src/components/CustomInput'
 
-import AppLayout from '../src/components/shared/AppLayout/AppLayout'
-import Header from '../src/components/shared/AppLayout/Header'
-import Body from '../src/components/shared/AppLayout/Body'
-import Footer from '../src/components/shared/AppLayout/Footer'
-import AppLogo from '../src/components/shared/AppLogo'
+import AppLayout from '../src/components/AppLayout/AppLayout'
+import Header from '../src/components/AppLayout/Header'
+import Body from '../src/components/AppLayout/Body'
+import Footer from '../src/components/AppLayout/Footer'
+import AppLogo from '../src/components/AppLogo'
 
-import BackButton from '../src/components/shared/BackButton'
-import NextButton from '../src/components/shared/NextButton'
+import BackButton from '../src/components/BackButton'
+import NextButton from '../src/components/NextButton'
 
 import useLogin from '../src/features/Login/hooks/useLogin'
 

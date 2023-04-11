@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 
-import Searchbar from '../shared/Searchbar'
-import useSearchbar from './useSearchbar'
-import useScrollListener from '../shared/hooks/useScrollListener'
+import Searchbar from '../Searchbar'
+import useSearchbar from '../../hooks/useSearchbar'
+import useScrollListener from '../../hooks/useScrollListener'
 
 import SearchbarContainer from './styles'
 

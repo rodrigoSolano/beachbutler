@@ -10,7 +10,7 @@ import OnboardingWelcome from '../src/features/Onboarding/components/OnboardingW
 import OnboardingSlogan from '../src/features/Onboarding/components/OnboardingSlogan'
 import OnboardingLogo from '../src/features/Onboarding/components/OnboardingLogo'
 
-import Separator from '../src/components/shared/Separator'
+import Separator from '../src/components/Separator'
 import LanguageSelector from '../src/features/Onboarding/components/LanguageSelector'
 
 export default function Onboarding({ locale }) {
