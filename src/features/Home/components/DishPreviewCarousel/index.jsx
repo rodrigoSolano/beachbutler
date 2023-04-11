@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 
-import DishPreviewCard from '../DishPreviewCard'
+import DishPreviewCard from '../../../../components/DishPreviewCard'
 import usePreviewDishes from '../../hooks/usePreviewDishes'
 
 const breakpoints = {

@@ -13,7 +13,7 @@ import { useTranslation } from 'next-i18next'
  */
 export default function useSearchbar(initialQuery = '') {
   const [query, setQuery] = useState(initialQuery)
-  const { t } = useTranslation('home')
+  const { t } = useTranslation('common')
 
   /**
    * Handler function for a search.

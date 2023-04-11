@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { Typography } from '@mui/material'
 
-import useScrollListener from '../../../../components/shared/hooks/useScrollListener'
+import useScrollListener from '../shared/hooks/useScrollListener'
 import useSections from './useSections'
 
 import { Wrapper, Container, SectionContainer } from './styles'

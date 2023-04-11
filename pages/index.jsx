@@ -1,18 +1,20 @@
 import { Box, Typography } from '@mui/material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
+import ScrollSearchbar from '../src/components/ScrollSearchbar'
+import Sections from '../src/components/Sections'
+import Section from '../src/components/Section'
 import AuthLayout from '../src/components/shared/AuthLayout'
-import HomeSearchbar from '../src/features/Home/components/HomeSearchbar'
+
 import BannerCarousel from '../src/features/Home/components/BannerCarousel'
-import Sections from '../src/features/Home/components/Sections'
-import getHomeSectionsService from '../src/features/Home/services/getHomeSectionsService'
-import Section from '../src/features/Home/components/Section'
 import DishPreviewCarousel from '../src/features/Home/components/DishPreviewCarousel'
+
+import getHomeSectionsService from '../src/features/Home/services/getHomeSectionsService'
 
 export default function Home({ sections }) {
   return (
     <>
-      <HomeSearchbar />
+      <ScrollSearchbar />
       <BannerCarousel />
       <Sections sections={sections} />
       {sections.map((section) => (

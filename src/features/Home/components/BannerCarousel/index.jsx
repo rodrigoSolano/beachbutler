@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 
-import Banner from './Banner'
+import Banner from '../Banner'
 import useBanners from '../../hooks/useBanners'
 
 const breakpoints = {

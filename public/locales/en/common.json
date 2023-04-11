@@ -2,5 +2,6 @@
   "home": "Home",
   "menu": "Menu",
   "orders": "Orders",
-  "profile": "Profile"
+  "profile": "Profile",
+  "searchbar_placeholder": "Find your food or drinks"
 }

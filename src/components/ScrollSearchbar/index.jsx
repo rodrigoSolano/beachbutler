@@ -1,12 +1,12 @@
 import { useRef } from 'react'
 
-import Searchbar from '../../../../components/shared/Searchbar'
+import Searchbar from '../shared/Searchbar'
 import useSearchbar from './useSearchbar'
-import useScrollListener from '../../../../components/shared/hooks/useScrollListener'
+import useScrollListener from '../shared/hooks/useScrollListener'
 
 import SearchbarContainer from './styles'
 
-export default function HomeSearchbar() {
+export default function ScrollSearchbar() {
   const ref = useRef(null)
   const { query, setQuery, handleSearch, placeholder } = useSearchbar()
 
