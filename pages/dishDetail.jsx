@@ -46,6 +46,7 @@ export default function DishDetail({ dish }) {
       </DishDetailBody>
       <DishDetailFooter>
         <QuantityDemand
+          color="grey.300"
           quantity={quantity}
           onIncrement={handleIncrement}
           onDecrement={handleDecrement}
