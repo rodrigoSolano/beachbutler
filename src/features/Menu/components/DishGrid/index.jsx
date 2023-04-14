@@ -1,9 +1,14 @@
 import { Box } from '@mui/material'
+import { useRouter } from 'next/router'
 import DishPreviewCard from 'components/DishPreviewCard'
 import useMenuPreviewDishes from 'features/Menu/hooks/useMenuPreviewDishes'
 
 export default function DishGrid({ section }) {
+  const router = useRouter()
   const { dishes, isLoading } = useMenuPreviewDishes({ section: section.value })
+
+  const onClickDish = (dish) => router.push(`/dishDetail?id=${dish.id}`)
+
   return (
     <Box
       sx={{
@@ -20,6 +25,7 @@ export default function DishGrid({ section }) {
           dish={dish}
           isLoading={isLoading}
           showTags={false}
+          onClick={onClickDish}
         />
       ))}
     </Box>

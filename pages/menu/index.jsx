@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import AuthLayout from 'components/AuthLayout'
@@ -25,6 +25,7 @@ export default function Menu({ sections }) {
           <DishGrid key={section.anchor} section={section} />
         </Section>
       ))}
+      <Box height={16} />
     </>
   )
 }

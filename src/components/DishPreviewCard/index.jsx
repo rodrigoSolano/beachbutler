@@ -10,9 +10,10 @@ export default function DishPreviewCard({
   dish,
   showTags = true,
   isLoading = true,
+  onClick = () => {},
 }) {
   return (
-    <Container>
+    <Container onClick={() => onClick(dish)}>
       <DishThumbnail thumbnail={dish.thumbnail} isLoading={isLoading} />
       <DishName name={dish.name} isLoading={isLoading} />
       <DishDescription description={dish.description} isLoading={isLoading} />
