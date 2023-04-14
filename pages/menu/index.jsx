@@ -6,6 +6,7 @@ import ScrollSearchbar from 'components/ScrollSearchbar'
 import Sections from 'components/Sections'
 import Section from 'components/Section'
 import DishGrid from 'features/Menu/components/DishGrid'
+import CartButton from 'components/CartButton'
 
 import getMenuSectionsService from 'features/Menu/services/getMenuSectionsService'
 
@@ -26,6 +27,7 @@ export default function Menu({ sections }) {
         </Section>
       ))}
       <Box height={16} />
+      <CartButton />
     </>
   )
 }
