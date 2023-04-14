@@ -7,6 +7,7 @@ import Section from 'components/Section'
 import AuthLayout from 'components/AuthLayout'
 
 import BannerCarousel from 'features/Home/components/BannerCarousel'
+import OrderStatus from 'components/OrderStatus'
 import DishPreviewCarousel from 'features/Home/components/DishPreviewCarousel'
 
 import getHomeSectionsService from 'features/Home/services/getHomeSectionsService'
@@ -15,6 +16,8 @@ export default function Home({ sections }) {
   return (
     <>
       <ScrollSearchbar />
+      <OrderStatus />
+      <Box height={24} />
       <BannerCarousel />
       <Sections sections={sections} />
       {sections.map((section) => (
