@@ -5,14 +5,15 @@ import { styled } from '@mui/material'
 import { DMSans } from 'theme'
 
 const Input = styled('input', {
-  shouldForwardProp: (prop) => prop !== 'error',
-})(({ theme, error }) => ({
+  shouldForwardProp: (prop) => prop !== 'error' && prop !== 'textAlign',
+})(({ theme, error, textAlign = 'center' }) => ({
   width: '100%',
   height: '2.75rem',
   borderRadius: theme.spacing(1),
   border: `1px solid ${theme.palette.grey['60']}`,
 
-  textAlign: 'center',
+  textAlign,
+  padding: textAlign === 'left' && '0 1rem',
   color: theme.palette.grey['100'],
   fontFamily: DMSans.style.fontFamily,
 
@@ -27,7 +28,12 @@ const Input = styled('input', {
   }),
 }))
 
-export default function CustomInput({ placeholder, error, ...props }) {
+export default function CustomInput({
+  placeholder,
+  error,
+  textAlign,
+  ...props
+}) {
   const [isFocused, setIsFocused] = useState(false)
 
   const handleFocus = () => setIsFocused(true)
@@ -37,6 +43,7 @@ export default function CustomInput({ placeholder, error, ...props }) {
   return (
     <Input
       placeholder={isFocused ? '' : placeholder}
+      textAlign={textAlign}
       onFocus={handleFocus}
       onBlur={handleBlur}
       error={error}
