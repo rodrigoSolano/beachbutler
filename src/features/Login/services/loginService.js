@@ -9,6 +9,10 @@ export default function loginService({ lastName, roomNumber }) {
       lastName === MOCK_DATA.lastName &&
       roomNumber === MOCK_DATA.roomNumber
     ) {
+      if (typeof window !== 'undefined') {
+        document.cookie = 'auth=true'
+        document.cookie = `user=${JSON.stringify(MOCK_DATA)}`
+      }
       resolve(true)
     } else {
       reject(new Error('Invalid credentials'))
