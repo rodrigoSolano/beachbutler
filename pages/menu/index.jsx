@@ -5,7 +5,7 @@ import AuthLayout from 'components/AuthLayout'
 import ScrollSearchbar from 'components/ScrollSearchbar'
 import Sections from 'components/Sections'
 import Section from 'components/Section'
-import DishGrid from 'features/Menu/components/DishGrid'
+import ProductsGrid from 'features/Menu/components/ProductsGrid'
 import CartButton from 'components/CartButton'
 
 import getMenuSectionsService from 'features/Menu/services/getMenuSectionsService'
@@ -23,7 +23,7 @@ export default function Menu({ sections }) {
           <Typography variant="h5" fontWeight={700} mb={2}>
             {section.label}
           </Typography>
-          <DishGrid key={section.anchor} section={section} />
+          <ProductsGrid key={section.anchor} section={section} />
         </Section>
       ))}
       <Box height={16} />

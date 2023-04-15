@@ -8,7 +8,7 @@ import AuthLayout from 'components/AuthLayout'
 
 import BannerCarousel from 'features/Home/components/BannerCarousel'
 import OrderStatus from 'components/OrderStatus'
-import DishPreviewCarousel from 'features/Home/components/DishPreviewCarousel'
+import ProductsPreviewCarousel from 'features/Home/components/ProductsPreviewCarousel'
 
 import getHomeSectionsService from 'features/Home/services/getHomeSectionsService'
 
@@ -25,7 +25,7 @@ export default function Home({ sections }) {
           <Typography variant="h5" fontWeight={700} mb={2}>
             {section.label}
           </Typography>
-          <DishPreviewCarousel section={section} />
+          <ProductsPreviewCarousel section={section} />
         </Section>
       ))}
       <Box height={16} />

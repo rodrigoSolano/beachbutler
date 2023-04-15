@@ -2,15 +2,15 @@ import { useState } from 'react'
 import { Box, IconButton, Stack } from '@mui/material'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 
-import QuantityDemand from 'features/DishDetail/components/QuantityDemand'
+import QuantityDemand from 'features/ProductDetail/components/QuantityDemand'
 
 import { Container } from './styles'
 
-import DishThumbnail from './DishThumbnail'
-import DishName from './DishName'
-import DishDescription from './DishDescription'
+import ProductThumbnail from './ProductThumbnail'
+import ProductName from './ProductName'
+import ProductDescription from './ProductDescription'
 
-export default function OrderCartSummaryItem({ dish }) {
+export default function OrderCartSummaryItem({ product }) {
   const [quantity, setQuantity] = useState(1)
 
   const onIncrement = () => setQuantity(quantity + 1)
@@ -24,11 +24,11 @@ export default function OrderCartSummaryItem({ dish }) {
           <DeleteOutlineOutlinedIcon fontSize="small" />
         </IconButton>
       </Box>
-      <DishThumbnail thumbnail={dish.image} />
+      <ProductThumbnail thumbnail={product.image} />
       <Stack direction="column" gap="12px">
         <Box>
-          <DishName name={dish.name} />
-          <DishDescription description={dish.description} />
+          <ProductName name={product.name} />
+          <ProductDescription description={product.description} />
         </Box>
         <Stack alignItems="flex-end">
           <QuantityDemand

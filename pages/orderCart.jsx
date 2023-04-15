@@ -4,12 +4,12 @@ import OrderCartLayout from 'features/OrderCart/components/OrderCartLayout'
 import OrderCartSummaryItem from 'features/OrderCart/components/OrderCartSummaryItem'
 import OrderTimeoutAlert from 'features/OrderCart/components/OrderTimeoutAlert'
 
-const DISHES = [
+const PRODUCTS = [
   {
     id: '1',
     name: 'Omelette de verduras',
     description: 'Omelette con pimiento rojo o verde, cebolla, tomate...',
-    image: '/images/dishes/dish_thumbnail_1.png',
+    image: '/images/products/product_thumbnail_1.png',
   },
 ]
 
@@ -24,8 +24,8 @@ export default function OrderCart() {
         justifyContent="space-between"
       >
         <Stack gap="8px">
-          {DISHES.map((dish) => (
-            <OrderCartSummaryItem key={dish.id} dish={dish} />
+          {PRODUCTS.map((product) => (
+            <OrderCartSummaryItem key={product.id} product={product} />
           ))}
         </Stack>
         <OrderTimeoutAlert />
