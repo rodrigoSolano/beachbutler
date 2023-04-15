@@ -20,6 +20,7 @@ export default function CustomListItem({
       sx={{
         border: `1px solid ${theme.palette.grey['60']}`,
         borderRadius: '4px',
+        backgroundColor: theme.palette.common.white,
       }}
       disablePadding
       {...props}
