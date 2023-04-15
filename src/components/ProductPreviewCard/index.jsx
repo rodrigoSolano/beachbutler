@@ -1,6 +1,7 @@
+import ProductThumbnail from 'components/ProductThumbnail'
+
 import { Container, ProductFooter } from './styles'
 
-import ProductThumbnail from './ProductThumbnail'
 import ProductName from './ProductName'
 import ProductDescription from './ProductDescription'
 import ProductSize from './ProductSize'
