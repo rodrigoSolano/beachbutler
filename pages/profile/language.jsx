@@ -1,15 +1,34 @@
-import { Typography } from '@mui/material'
+import { Box, Typography, Stack } from '@mui/material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import AuthLayout from 'components/AuthLayout'
+import TopReturnBar from 'features/Profile/components/TopReturnBar'
+import SelectedLanguageButton from 'features/Profile/components/SelectedLanguageButton'
 
-export default function LanguageAccount() {
+export default function LanguageAccount({ locale }) {
   return (
-    <div>
-      <Typography variant="h5" color="grey.300" fontWeight={700} mt={1}>
-        Cambiar idioma
+    <Box mt={3}>
+      <TopReturnBar>
+        <Typography variant="h5" color="grey.300" fontWeight={700}>
+          Language
+        </Typography>
+      </TopReturnBar>
+      <Typography variant="body2" color="grey.500" mt={1}>
+        Select your preferred language
       </Typography>
-    </div>
+      <Stack direction="column" gap={2} mt={2}>
+        <SelectedLanguageButton isSelected={locale === 'en'}>
+          <Typography variant="body1" color="grey.300">
+            Ingles
+          </Typography>
+        </SelectedLanguageButton>
+        <SelectedLanguageButton isSelected={locale === 'es'}>
+          <Typography variant="body1" color="grey.300">
+            Español
+          </Typography>
+        </SelectedLanguageButton>
+      </Stack>
+    </Box>
   )
 }
 
