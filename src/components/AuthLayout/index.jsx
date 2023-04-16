@@ -40,7 +40,8 @@ export default function AuthLayout({ children }) {
   const theme = useTheme()
   const router = useRouter()
 
-  const isCurrentSection = (path) => router.pathname === path
+  const isCurrentSection = (path) =>
+    router.pathname?.split('/')[1] === path?.split('/')[1]
 
   const onSectionClick = (path) => router.replace(path)
 
