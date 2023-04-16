@@ -10,4 +10,5 @@ module.exports = withPWA({
   images: {
     domains: ['www.thecocktaildb.com'],
   },
+  swcMinify: true,
 })
