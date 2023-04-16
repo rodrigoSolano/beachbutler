@@ -11,7 +11,7 @@ export default function MyDocument(props) {
   const { emotionStyleTags } = props
 
   return (
-    <Html lang="en" className={DMSans.className}>
+    <Html className={DMSans.className}>
       <Head>
         {/* PWA primary color */}
         <meta name="theme-color" content={theme.palette.primary.main} />
