@@ -10,8 +10,10 @@ export default function loginService({ lastName, roomNumber }) {
       roomNumber === MOCK_DATA.roomNumber
     ) {
       if (typeof window !== 'undefined') {
-        document.cookie = 'auth=true'
-        document.cookie = `user=${JSON.stringify(MOCK_DATA)}`
+        document.cookie = `auth=true; max-age=${60 * 60 * 24 * 365 * 10}`
+        document.cookie = `user=${JSON.stringify(MOCK_DATA)}; max-age=${
+          60 * 60 * 24 * 365 * 10
+        }`
       }
       resolve(true)
     } else {
