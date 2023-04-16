@@ -2,7 +2,9 @@ import Router from 'next/router'
 
 export default function changeLanguageService(language) {
   if (typeof window !== 'undefined') {
-    document.cookie = `NEXT_LOCALE=${language}`
+    document.cookie = `NEXT_LOCALE=${language}; max-age=${
+      60 * 60 * 24 * 365 * 10
+    }`
   }
 
   Router.replace(
