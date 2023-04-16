@@ -77,7 +77,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         '*::-webkit-scrollbar': {
-          width: '0.12em',
+          width: '0',
+          height: '0',
         },
         '*::-webkit-scrollbar-thumb': {
           borderRadius: '20px',
