@@ -35,8 +35,8 @@ const StepCircle = styled(Box, {
 }))
 
 const StepLine = styled(Box, {
-  shouldForwardProp: (prop) => prop !== 'status',
-})(({ theme, status }) => ({
+  shouldForwardProp: (prop) => prop !== 'status' && prop !== 'isOpen',
+})(({ theme, status, isOpen }) => ({
   width: '17px',
   height: '4px',
   marginLeft: '-1px',
@@ -44,6 +44,13 @@ const StepLine = styled(Box, {
   '&:last-of-type': {
     display: 'none',
   },
+
+  ...(isOpen && {
+    width: '4px',
+    height: '22px',
+    marginLeft: '6px',
+    marginTop: '-6px',
+  }),
 
   ...(status === 'finalized' && {
     backgroundColor: theme.palette.primary[400],

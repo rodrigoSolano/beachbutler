@@ -7,6 +7,29 @@ import ShowOrderButton from './ShowOrderButton'
 import DropdownButton from './DropdownButton'
 import OrderStatusSeparator from './OrderStatusSeparator'
 
+const STEPS = [
+  {
+    id: 1,
+    label: 'Preparing',
+    status: 'finalized',
+  },
+  {
+    id: 2,
+    label: 'Cooking',
+    status: 'inProgress',
+  },
+  {
+    id: 3,
+    label: 'Delivering',
+    status: 'pending',
+  },
+  {
+    id: 4,
+    label: 'Delivered',
+    status: 'pending',
+  },
+]
+
 export default function OrderStatus() {
   const theme = useTheme()
 
@@ -39,7 +62,7 @@ export default function OrderStatus() {
         <ShowOrderButton />
       </Stack>
       <OrderStatusSeparator />
-      <Stepper isOpen={isOpen} />
+      <Stepper isOpen={isOpen} steps={STEPS} />
     </Paper>
   )
 }
