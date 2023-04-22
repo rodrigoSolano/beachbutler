@@ -1,19 +1,28 @@
+// @ts-check
 import { useRouter } from 'next/router'
 import { Stack } from '@mui/material'
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 
+import OnboardingLanguageSelector from 'features/Onboarding/components/OnboardingLanguageSelector'
 import OnboardingNextButton from 'features/Onboarding/components/OnboardingNextButton'
+import OnboardingSeparator from 'features/Onboarding/components/OnboardingSeparator'
 import OnboardingContainer from 'features/Onboarding/components/OnboardingContainer'
 import OnboardingWelcome from 'features/Onboarding/components/OnboardingWelcome'
 import OnboardingSlogan from 'features/Onboarding/components/OnboardingSlogan'
 import OnboardingLogo from 'features/Onboarding/components/OnboardingLogo'
 
-import Separator from 'components/Separator'
-import LanguageSelector from 'features/Onboarding/components/LanguageSelector'
+/**
+ * @typedef {object} OnboardingPageProps
+ * @property {string} locale - The locale of the page
+ */
 
-export default function Onboarding({ locale }) {
+/**
+ * @param {OnboardingPageProps} props
+ * @returns {JSX.Element}
+ */
+export default function OnboardingPage({ locale }) {
   const router = useRouter()
   const { t } = useTranslation('onboarding')
 
@@ -25,12 +34,12 @@ export default function Onboarding({ locale }) {
         <OnboardingLogo />
         <Stack direction="column" gap={1} alignItems="center">
           <OnboardingWelcome welcome={t('welcome')} />
-          <Separator px={1} />
+          <OnboardingSeparator />
           <OnboardingSlogan slogan={t('slogan')} />
         </Stack>
       </Stack>
       <Stack direction="column" gap={2} justifyContent="flex-end">
-        <LanguageSelector t={t} locale={locale} />
+        <OnboardingLanguageSelector locale={locale} />
         <OnboardingNextButton text={t('continue')} onClick={goToLogin} />
       </Stack>
     </OnboardingContainer>

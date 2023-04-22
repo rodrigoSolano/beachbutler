@@ -1,11 +1,25 @@
+// @ts-check
 import { Stack, Typography } from '@mui/material'
 
-import LanguageButton from '../LanguageButton'
+import { useTranslation } from 'next-i18next'
+
+import OnboardingLanguageButton from '../OnboardingLanguageButton'
 import changeLanguageService from '../../services/changeLanguageService'
 
 const AVAILABLE_LANGUAGES = ['en', 'es']
 
-export default function LanguageSelector({ t, locale }) {
+/**
+ * @typedef {Object} OnboardingLanguageSelectorProps
+ * @property {string} locale - Current locale (en, es, etc.)
+ */
+
+/**
+ * @param {OnboardingLanguageSelectorProps} props
+ * @returns {JSX.Element}
+ */
+export default function OnboardingLanguageSelector({ locale }) {
+  const { t } = useTranslation('onboarding')
+
   const handleLanguageButtonClick = (language) =>
     changeLanguageService(language)
 
@@ -21,7 +35,7 @@ export default function LanguageSelector({ t, locale }) {
       </Typography>
       <Stack direction="row" spacing={2}>
         {AVAILABLE_LANGUAGES.map((language) => (
-          <LanguageButton
+          <OnboardingLanguageButton
             isSelected={language === locale}
             keyLang={language}
             onClick={() => handleLanguageButtonClick(language)}

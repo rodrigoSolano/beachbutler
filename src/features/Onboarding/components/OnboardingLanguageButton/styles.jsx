@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material'
 
-const Container = styled(Box, {
+const OnboardingLanguageButtonContainer = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'isSelected',
 })(({ theme, isSelected }) => ({
   width: '100%',
@@ -24,4 +24,4 @@ const Container = styled(Box, {
   }),
 }))
 
-export default Container
+export default OnboardingLanguageButtonContainer
