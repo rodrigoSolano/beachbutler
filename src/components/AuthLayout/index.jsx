@@ -3,9 +3,9 @@ import { useTranslation } from 'next-i18next'
 import { Button, Typography, useTheme } from '@mui/material'
 
 import AppLayout from 'components/AppLayout/AppLayout'
-import Header from 'components/AppLayout/Header'
-import Body from 'components/AppLayout/Body'
-import Footer from 'components/AppLayout/Footer'
+import AppHeader from 'components/AppLayout/AppHeader'
+import AppBody from 'components/AppLayout/AppBody'
+import AppFooter from 'components/AppLayout/AppFooter'
 import AppLogo from 'components/AppLogo'
 import QRIcon from 'components/Icons/QRIcon'
 import HomeIcon from 'components/Icons/HomeIcon'
@@ -47,7 +47,7 @@ export default function AuthLayout({ children }) {
 
   return (
     <AppLayout>
-      <Header
+      <AppHeader
         sx={{
           padding: '0 16px',
           display: 'flex',
@@ -62,11 +62,11 @@ export default function AuthLayout({ children }) {
             Change location
           </Typography>
         </Button>
-      </Header>
-      <Body id="body" sx={{ paddingTop: 0 }}>
+      </AppHeader>
+      <AppBody id="body" sx={{ paddingTop: 0 }}>
         {children}
-      </Body>
-      <Footer
+      </AppBody>
+      <AppFooter
         sx={{
           borderRadius: '16px 16px 0 0',
           boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.08)',
@@ -109,7 +109,7 @@ export default function AuthLayout({ children }) {
             </Typography>
           </Button>
         ))}
-      </Footer>
+      </AppFooter>
     </AppLayout>
   )
 }

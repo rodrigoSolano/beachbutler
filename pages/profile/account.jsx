@@ -3,7 +3,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import AuthLayout from 'components/AuthLayout'
 import TopReturnBar from 'features/Profile/components/TopReturnBar'
-import CustomInput from 'components/CustomInput'
+import Input from 'components/Input'
 
 export default function ProfileAccount() {
   return (
@@ -18,7 +18,7 @@ export default function ProfileAccount() {
           <Typography variant="body1" color="grey.300">
             Last name
           </Typography>
-          <CustomInput
+          <Input
             textAlign="left"
             placeholder="Last name"
             variant="outlined"
@@ -30,7 +30,7 @@ export default function ProfileAccount() {
           <Typography variant="body1" color="grey.300">
             Room number
           </Typography>
-          <CustomInput
+          <Input
             textAlign="left"
             placeholder="Room number"
             variant="outlined"
@@ -42,7 +42,7 @@ export default function ProfileAccount() {
           <Typography variant="body1" color="grey.300">
             Phone number
           </Typography>
-          <CustomInput
+          <Input
             textAlign="left"
             placeholder="Phone number"
             variant="outlined"
@@ -54,7 +54,7 @@ export default function ProfileAccount() {
           <Typography variant="body1" color="grey.300">
             Email
           </Typography>
-          <CustomInput
+          <Input
             textAlign="left"
             placeholder="Email"
             variant="outlined"

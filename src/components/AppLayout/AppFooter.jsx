@@ -1,6 +1,6 @@
 import { Box, styled } from '@mui/material'
 
-const Footer = styled(Box, {
+const AppFooter = styled(Box, {
   shouldForwardProp: (prop) =>
     prop !== 'border' && prop !== 'shadow' && prop !== 'center',
 })(({ theme, border = false, shadow = false, center = false }) => ({
@@ -26,4 +26,4 @@ const Footer = styled(Box, {
   }),
 }))
 
-export default Footer
+export default AppFooter

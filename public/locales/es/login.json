@@ -4,6 +4,5 @@
   "one_step_login": "Inicia sesión con un solo paso",
   "instructions_guest_data": "Si eres nuestro huésped, puedes iniciar sesión con tu apellido en tu reserva y número de habitación.",
   "last_name": "Apellidos",
-  "room_number": "Número de habitación",
-  "error_on_login": "Lo sentimos, no tenemos registrada esta combinación de nombre y número. Si cree que esto podría ser un error, comuníquese con la recepción."
+  "room_number": "Número de habitación"
 }

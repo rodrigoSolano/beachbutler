@@ -1,14 +1,17 @@
+// @ts-check
+import { useState } from 'react'
 import { useRouter } from 'next/router'
+import { Stack, Typography } from '@mui/material'
+
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Stack, Typography, useTheme } from '@mui/material'
 
-import CustomInput from 'components/CustomInput'
+import Input from 'components/Input'
 
 import AppLayout from 'components/AppLayout/AppLayout'
-import Header from 'components/AppLayout/Header'
-import Body from 'components/AppLayout/Body'
-import Footer from 'components/AppLayout/Footer'
+import AppHeader from 'components/AppLayout/AppHeader'
+import AppBody from 'components/AppLayout/AppBody'
+import AppFooter from 'components/AppLayout/AppFooter'
 import AppLogo from 'components/AppLogo'
 
 import BackButton from 'components/BackButton'
@@ -19,26 +22,43 @@ import useLogin from 'features/Login/hooks/useLogin'
 export default function LoginPage() {
   const { t } = useTranslation('login')
   const router = useRouter()
-  const theme = useTheme()
-  const { login, error } = useLogin()
+  const { login, error, errorMessage } = useLogin()
 
-  const onSubmit = (e) => {
-    e.preventDefault()
-    const { lastName, roomNumber } = e.target.elements
+  const [fields, setFields] = useState({
+    lastName: '',
+    roomNumber: '',
+  })
+
+  /**
+   * @param {React.ChangeEvent<HTMLInputElement>} event
+   * @returns {void}
+   */
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFields({ ...fields, [name]: value })
+  }
+
+  /**
+   * @param {React.FormEvent<HTMLFormElement>} event
+   */
+  const onSubmit = (event) => {
+    event.preventDefault()
     login({
-      lastName: lastName.value.trim(),
-      roomNumber: roomNumber.value,
+      lastName: fields.lastName.trim().toString(),
+      roomNumber: fields.roomNumber.toString().toLowerCase(),
     })
   }
 
   const back = () => router.replace('/onboarding')
 
   return (
+    // @ts-ignore
     <AppLayout component="form" onSubmit={onSubmit}>
-      <Header sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
+      {/* @ts-ignore */}
+      <AppHeader showBorderBottom>
         <AppLogo />
-      </Header>
-      <Body>
+      </AppHeader>
+      <AppBody>
         <Typography variant="body1" color="grey.500" fontWeight={500}>
           {t('one_step_login')}
         </Typography>
@@ -50,10 +70,12 @@ export default function LoginPage() {
             <Typography variant="body1" color="grey.500">
               {t('last_name')}
             </Typography>
-            <CustomInput
+            <Input
+              // @ts-ignore
               type="text"
               name="lastName"
               error={error}
+              onChange={handleChange}
               minLength={4}
               placeholder={t('last_name')}
               autoComplete="off"
@@ -64,11 +86,13 @@ export default function LoginPage() {
             <Typography variant="body1" color="grey.500">
               {t('room_number')}
             </Typography>
-            <CustomInput
-              min="1"
+            <Input
+              // @ts-ignore
+              min={1}
               type="number"
               name="roomNumber"
               error={error}
+              onChange={handleChange}
               minLength={1}
               placeholder={t('room_number')}
               autoComplete="off"
@@ -77,12 +101,13 @@ export default function LoginPage() {
           </Stack>
           {error && (
             <Typography variant="body2" color="error" textAlign="center">
-              {t('error_on_login')}
+              {errorMessage}
             </Typography>
           )}
         </Stack>
-      </Body>
-      <Footer border shadow center>
+      </AppBody>
+      {/* @ts-ignore */}
+      <AppFooter border shadow center>
         <Stack
           sx={{ width: '100%', height: '40px', padding: '8px' }}
           gap={1}
@@ -93,7 +118,7 @@ export default function LoginPage() {
           <BackButton title={t('back')} onClick={back} />
           <NextButton title={t('next')} type="submit" />
         </Stack>
-      </Footer>
+      </AppFooter>
     </AppLayout>
   )
 }

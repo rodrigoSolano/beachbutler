@@ -5,9 +5,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Box, Stack, Typography, useTheme } from '@mui/material'
 
 import AppLayout from 'components/AppLayout/AppLayout'
-import Header from 'components/AppLayout/Header'
-import Body from 'components/AppLayout/Body'
-import Footer from 'components/AppLayout/Footer'
+import AppHeader from 'components/AppLayout/AppHeader'
+import AppBody from 'components/AppLayout/AppBody'
+import AppFooter from 'components/AppLayout/AppFooter'
 import AppLogo from 'components/AppLogo'
 import NextButton from 'components/NextButton'
 import SkipButton from 'components/SkipButton'
@@ -43,10 +43,10 @@ export default function AllergiesPage({ allergies }) {
 
   return (
     <AppLayout>
-      <Header sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
+      <AppHeader sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
         <AppLogo />
-      </Header>
-      <Body>
+      </AppHeader>
+      <AppBody>
         <Typography color="gray.500" fontWeight={500} gutterBottom>
           {t('allergies')}
         </Typography>
@@ -63,8 +63,8 @@ export default function AllergiesPage({ allergies }) {
             />
           ))}
         </CustomList>
-      </Body>
-      <Footer border shadow>
+      </AppBody>
+      <AppFooter border shadow>
         <Stack
           sx={{ p: '8px' }}
           gap={1}
@@ -76,7 +76,7 @@ export default function AllergiesPage({ allergies }) {
           {skip && <SkipButton title={t('skip')} onClick={onSkipClick} />}
           {!skip && <NextButton title={t('next')} onClick={onSkipClick} />}
         </Stack>
-      </Footer>
+      </AppFooter>
     </AppLayout>
   )
 }

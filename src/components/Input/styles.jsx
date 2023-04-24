@@ -1,10 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { useState } from 'react'
 import { styled } from '@mui/material'
 
 import { DMSans } from 'theme'
 
-const Input = styled('input', {
+const StyledInput = styled('input', {
   shouldForwardProp: (prop) => prop !== 'error' && prop !== 'textAlign',
 })(({ theme, error, textAlign = 'center' }) => ({
   width: '100%',
@@ -28,26 +26,4 @@ const Input = styled('input', {
   }),
 }))
 
-export default function CustomInput({
-  placeholder,
-  error,
-  textAlign,
-  ...props
-}) {
-  const [isFocused, setIsFocused] = useState(false)
-
-  const handleFocus = () => setIsFocused(true)
-
-  const handleBlur = () => setIsFocused(false)
-
-  return (
-    <Input
-      placeholder={isFocused ? '' : placeholder}
-      textAlign={textAlign}
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      error={error}
-      {...props}
-    />
-  )
-}
+export default StyledInput

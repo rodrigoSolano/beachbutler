@@ -5,9 +5,9 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { Stack, Typography, useTheme } from '@mui/material'
 
 import AppLayout from 'components/AppLayout/AppLayout'
-import Header from 'components/AppLayout/Header'
-import Body from 'components/AppLayout/Body'
-import Footer from 'components/AppLayout/Footer'
+import AppHeader from 'components/AppLayout/AppHeader'
+import AppBody from 'components/AppLayout/AppBody'
+import AppFooter from 'components/AppLayout/AppFooter'
 import AppLogo from 'components/AppLogo'
 import NextButton from 'components/NextButton'
 
@@ -49,10 +49,10 @@ export default function DietRestrictios({ dietRestrictions }) {
 
   return (
     <AppLayout>
-      <Header sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
+      <AppHeader sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
         <AppLogo />
-      </Header>
-      <Body>
+      </AppHeader>
+      <AppBody>
         <Typography color="gray.500" fontWeight={500} gutterBottom>
           {t('diet_restrictions')}
         </Typography>
@@ -69,8 +69,8 @@ export default function DietRestrictios({ dietRestrictions }) {
             />
           ))}
         </CustomList>
-      </Body>
-      <Footer border shadow>
+      </AppBody>
+      <AppFooter border shadow>
         <Stack
           sx={{ p: '8px' }}
           gap={1}
@@ -85,7 +85,7 @@ export default function DietRestrictios({ dietRestrictions }) {
             <NextButton title={t('next')} onClick={onNextClick} />
           )}
         </Stack>
-      </Footer>
+      </AppFooter>
     </AppLayout>
   )
 }

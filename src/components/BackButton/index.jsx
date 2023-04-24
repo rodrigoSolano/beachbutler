@@ -1,8 +1,17 @@
-/* eslint-disable react/jsx-props-no-spreading */
+// @ts-check
 import { Button, Typography, useTheme } from '@mui/material'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 
-export default function BackButton({ title, ...props }) {
+/**
+ * @typedef {object} BackButtonProps
+ * @property {string} title - Button title
+ * @property {() => void} onClick - Button click handler
+ */
+
+/**
+ * @param {BackButtonProps} props
+ */
+export default function BackButton({ title, onClick }) {
   const theme = useTheme()
 
   return (
@@ -17,9 +26,9 @@ export default function BackButton({ title, ...props }) {
           border: `1px solid ${theme.palette.grey[60]}`,
         },
       }}
+      onClick={onClick}
       variant="outlined"
       startIcon={<ArrowBackIcon fontSize="small" />}
-      {...props}
     >
       <Typography variant="button" fontWeight={500} textTransform="none">
         {title}

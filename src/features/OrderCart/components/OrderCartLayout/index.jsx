@@ -11,7 +11,7 @@ import {
 
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'
 
-import Header from 'components/AppLayout/Header'
+import AppHeader from 'components/AppLayout/AppHeader'
 import AppLogo from 'components/AppLogo'
 import QRIcon from 'components/Icons/QRIcon'
 
@@ -44,7 +44,7 @@ export default function OrderCartLayout({ children }) {
 
   return (
     <Container>
-      <Header
+      <AppHeader
         sx={{
           padding: '0 16px',
           display: 'flex',
@@ -59,8 +59,8 @@ export default function OrderCartLayout({ children }) {
             Change location
           </Typography>
         </Button>
-      </Header>
-      <Header sx={{ justifyContent: 'space-between', padding: '0 8px' }}>
+      </AppHeader>
+      <AppHeader sx={{ justifyContent: 'space-between', padding: '0 8px' }}>
         <Stack direction="row" alignItems="center" gap="8px">
           <IconButton sx={{ color: theme.palette.grey[500] }} onClick={back}>
             <ArrowBackRoundedIcon />
@@ -74,7 +74,7 @@ export default function OrderCartLayout({ children }) {
             Clear cart
           </Typography>
         </Button>
-      </Header>
+      </AppHeader>
       <Box
         sx={{
           height: 'calc(100vh - 56px - 56px - 64px)',
