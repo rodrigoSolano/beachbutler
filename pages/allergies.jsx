@@ -43,7 +43,9 @@ export default function AllergiesPage({ allergies }) {
 
   return (
     <AppLayout>
-      <AppHeader sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}>
+      <AppHeader
+        sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}
+      >
         <AppLogo />
       </AppHeader>
       <AppBody>

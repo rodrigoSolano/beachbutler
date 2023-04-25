@@ -6,7 +6,7 @@ const Wrapper = styled(Box)(() => ({
   position: 'fixed',
   bottom: '64px',
   padding: '0 16px',
-  maxWidth: "600px",
+  maxWidth: '600px',
   transform: 'translateX(-50%)',
   left: '50%',
 
