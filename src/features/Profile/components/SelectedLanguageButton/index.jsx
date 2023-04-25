@@ -1,6 +1,18 @@
+// @ts-check
 import { Button, useTheme } from '@mui/material'
 
-export default function SelectedLanguageButton({ children, isSelected }) {
+/**
+ * @typedef {Object} SelectedLanguageButtonProps
+ * @property {boolean} isSelected
+ * @property {function} onClick
+ * @property {React.ReactNode} children
+ */
+
+export default function SelectedLanguageButton({
+  children = null,
+  isSelected = false,
+  onClick = () => {},
+}) {
   const theme = useTheme()
 
   const border = isSelected ? `1px solid #00918C` : `1px solid #D2D2D2`
@@ -10,6 +22,7 @@ export default function SelectedLanguageButton({ children, isSelected }) {
 
   return (
     <Button
+      // @ts-ignore
       color={isSelected ? 'primary' : 'grey'}
       sx={{
         color: theme.palette.grey[300],
@@ -17,6 +30,7 @@ export default function SelectedLanguageButton({ children, isSelected }) {
         background: bgColor,
       }}
       variant="outlined"
+      onClick={onClick}
     >
       {children}
     </Button>

@@ -3,8 +3,8 @@ import { Stack, Typography } from '@mui/material'
 
 import { useTranslation } from 'next-i18next'
 
+import changeLanguageService from 'services/changeLanguageService'
 import OnboardingLanguageButton from '../OnboardingLanguageButton'
-import changeLanguageService from '../../services/changeLanguageService'
 
 const AVAILABLE_LANGUAGES = ['en', 'es']
 
