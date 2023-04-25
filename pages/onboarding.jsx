@@ -31,7 +31,9 @@ export default function OnboardingPage({ locale }) {
   return (
     <OnboardingContainer>
       <Stack height="100%" direction="column" gap={9} alignContent="center">
-        <OnboardingLogo />
+        <Stack width="100%" alignItems="center" pt={4.5}>
+          <OnboardingLogo />
+        </Stack>
         <Stack direction="column" gap={1} alignItems="center">
           <OnboardingWelcome welcome={t('welcome')} />
           <OnboardingSeparator />

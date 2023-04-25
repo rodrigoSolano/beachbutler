@@ -1,14 +1,13 @@
 // @ts-check
 import Image from 'next/image'
 
-export default function OnboardingLogo() {
+export default function OnboardingLogo({ width = 150, height = 80 }) {
   return (
     <Image
       src="/logos/beachbutler_logo.png"
-      width={150}
-      height={80}
+      width={width}
+      height={height}
       alt="beachbutler logo"
-      style={{ margin: '0 auto', marginTop: '36px' }}
       priority
     />
   )
