@@ -5,8 +5,10 @@ const Wrapper = styled(Box)(() => ({
   height: '40px',
   position: 'fixed',
   bottom: '64px',
-  left: 0,
   padding: '0 16px',
+  maxWidth: "600px",
+  transform: 'translateX(-50%)',
+  left: '50%',
 
   zIndex: 20,
 }))
