@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -8,15 +9,40 @@ import AuthLayout from 'components/AuthLayout'
 
 import BannerCarousel from 'features/Home/components/BannerCarousel'
 import OrderStatus from 'components/OrderStatus'
+import RateYourOrder from 'components/RateYourOrder'
 import ProductsPreviewCarousel from 'features/Home/components/ProductsPreviewCarousel'
+
+import useOrder from 'context/Order/useOrder'
+import CartButton from 'components/CartButton'
+import { CREATING, DELIVERED } from 'context/Order/orderStatuses'
 
 import getHomeSectionsService from 'features/Home/services/getHomeSectionsService'
 
 export default function Home({ sections }) {
+  const { order, rateOrder } = useOrder()
+  const showOrderStatus = order?.status !== CREATING && order.products?.length
+  const showCartButton = order.status === CREATING && order.products.length
+  const [showRateOrder, setShowRateOrder] = useState(false)
+
+  const handleRateOrder = (rating) => {
+    rateOrder(rating)
+    setTimeout(() => {
+      setShowRateOrder(false)
+    }, 1000)
+  }
+
+  const handleCloseRating = () => {
+    setShowRateOrder(false)
+  }
+
+  useEffect(() => {
+    if (order.status === DELIVERED) setShowRateOrder(true)
+  }, [order])
+
   return (
     <>
       <ScrollSearchbar />
-      <OrderStatus />
+      {showOrderStatus && <OrderStatus />}
       <Box height={24} />
       <BannerCarousel />
       <Sections sections={sections} />
@@ -29,6 +55,10 @@ export default function Home({ sections }) {
         </Section>
       ))}
       <Box height={16} />
+      {showCartButton && <CartButton />}
+      {showRateOrder && (
+        <RateYourOrder onRate={handleRateOrder} onClose={handleCloseRating} />
+      )}
     </>
   )
 }

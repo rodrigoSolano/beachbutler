@@ -1,6 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Paper, Stack, Typography, useTheme } from '@mui/material'
 import FoodBankRoundedIcon from '@mui/icons-material/FoodBankRounded'
+
+import useOrder from 'context/Order/useOrder'
+import {
+  RECEIVED,
+  PREPARING,
+  ON_ROUTE,
+  DELIVERED,
+} from 'context/Order/orderStatuses'
 
 import Stepper from '../Stepper'
 import ShowOrderButton from './ShowOrderButton'
@@ -10,32 +18,63 @@ import OrderStatusSeparator from './OrderStatusSeparator'
 const STEPS = [
   {
     id: 1,
-    label: 'Preparing',
-    status: 'finalized',
+    label: 'Received',
+    status: 'pending',
+    value: RECEIVED,
   },
   {
     id: 2,
-    label: 'Cooking',
-    status: 'inProgress',
+    label: 'Preparing',
+    status: 'pending',
+    value: PREPARING,
   },
   {
     id: 3,
     label: 'Delivering',
     status: 'pending',
+    value: ON_ROUTE,
   },
   {
     id: 4,
     label: 'Delivered',
     status: 'pending',
+    value: DELIVERED,
   },
 ]
 
-export default function OrderStatus() {
-  const theme = useTheme()
+const getSteps = (status = RECEIVED) => {
+  const currentStep = STEPS.find((step) => step.value === status)
 
+  return STEPS.map((step) => {
+    if (step.id === currentStep?.id) {
+      if (step.id === 4) return { ...step, status: 'finalized' }
+      return { ...step, status: 'inProgress' }
+    }
+
+    if (step.id <= currentStep?.id) return { ...step, status: 'finalized' }
+
+    if (step.id > currentStep?.id) return { ...step, status: 'pending' }
+
+    return { ...step, status: 'pending' }
+  })
+}
+
+export default function OrderStatus() {
+  const { order } = useOrder()
+  const { status } = order
+  const theme = useTheme()
+  const steps = getSteps(status)
+  const totalProducts = order.products.reduce((acc, i) => acc + i.quantity, 0)
+  const [currentStepLabel, setCurrentStepLabel] = useState(
+    steps.find((step) => step.value === status)?.label
+  )
   const [isOpen, setIsOpen] = useState(false)
 
   const handleToggle = () => setIsOpen(!isOpen)
+
+  useEffect(() => {
+    setCurrentStepLabel(steps.find((step) => step.value === status)?.label)
+  }, [order.status, status, steps])
 
   return (
     <Paper
@@ -57,12 +96,16 @@ export default function OrderStatus() {
       </Stack>
       <Stack direction="row" justifyContent="space-between" mt={1}>
         <Typography variant="body1" color="grey.300">
-          3 productos
+          {`${totalProducts} products`}
         </Typography>
         <ShowOrderButton />
       </Stack>
       <OrderStatusSeparator />
-      <Stepper isOpen={isOpen} steps={STEPS} />
+      <Stepper
+        steps={steps}
+        isOpen={isOpen}
+        currentStepLabel={currentStepLabel}
+      />
     </Paper>
   )
 }

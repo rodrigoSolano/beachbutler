@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 import { Box, Stack } from '@mui/material'
 
 import ProductDetailLayout from 'features/ProductDetail/components/ProductDetailLayout'
@@ -18,13 +19,24 @@ import QuantityDemand from 'features/ProductDetail/components/QuantityDemand'
 import AddToCartButton from 'features/ProductDetail/components/AddToCartButton'
 
 import getProductDetailService from 'features/ProductDetail/services/getProductDetailService'
+import useOrder from 'context/Order/useOrder'
 
 export default function ProductDetail({ product }) {
+  const router = useRouter()
+  const { addProductToOrder } = useOrder()
   const [quantity, setQuantity] = useState(1)
 
   const handleIncrement = () => setQuantity(quantity + 1)
 
   const handleDecrement = () => setQuantity(quantity - 1)
+
+  const handleAddToCart = () => {
+    addProductToOrder({
+      product,
+      quantity,
+    })
+    router.back()
+  }
 
   return (
     <ProductDetailLayout>
@@ -51,7 +63,7 @@ export default function ProductDetail({ product }) {
           onIncrement={handleIncrement}
           onDecrement={handleDecrement}
         />
-        <AddToCartButton />
+        <AddToCartButton onClick={handleAddToCart} />
       </ProductDetailFooter>
     </ProductDetailLayout>
   )

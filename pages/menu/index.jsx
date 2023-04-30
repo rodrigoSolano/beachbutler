@@ -10,7 +10,11 @@ import CartButton from 'components/CartButton'
 
 import getMenuSectionsService from 'features/Menu/services/getMenuSectionsService'
 
+import useOrder from 'context/Order/useOrder'
+
 export default function Menu({ sections }) {
+  const { order } = useOrder()
+
   return (
     <>
       <ScrollSearchbar />
@@ -27,7 +31,7 @@ export default function Menu({ sections }) {
         </Section>
       ))}
       <Box height={16} />
-      <CartButton />
+      {order.status === 'CREATING' && order.products.length && <CartButton />}
     </>
   )
 }

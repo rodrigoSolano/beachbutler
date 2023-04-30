@@ -1,0 +1,5 @@
+export const CREATING = 'CREATING'
+export const RECEIVED = 'RECEIVED'
+export const PREPARING = 'PREPARING'
+export const ON_ROUTE = 'ON_ROUTE'
+export const DELIVERED = 'DELIVERED'

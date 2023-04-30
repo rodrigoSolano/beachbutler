@@ -14,6 +14,7 @@ import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded'
 import AppHeader from 'components/AppLayout/AppHeader'
 import AppLogo from 'components/AppLogo'
 import QRIcon from 'components/Icons/QRIcon'
+import useOrder from 'context/Order/useOrder'
 
 const Container = styled(Box)(() => ({
   width: '100%',
@@ -39,8 +40,14 @@ const Footer = styled(Box)(() => ({
 export default function OrderCartLayout({ children }) {
   const router = useRouter()
   const theme = useTheme()
+  const { order, clearOrder, orderOrder } = useOrder()
 
   const back = () => router.back()
+
+  const handleOrder = () => {
+    orderOrder()
+    router.push('/')
+  }
 
   return (
     <Container>
@@ -69,11 +76,17 @@ export default function OrderCartLayout({ children }) {
             Your cart
           </Typography>
         </Stack>
-        <Button variant="text" sx={{ color: theme.palette.grey[100] }}>
-          <Typography variant="body1" color="grey.100">
-            Clear cart
-          </Typography>
-        </Button>
+        {order.products.length > 0 && (
+          <Button
+            variant="text"
+            sx={{ color: theme.palette.grey[100] }}
+            onClick={clearOrder}
+          >
+            <Typography variant="body1" color="grey.100">
+              Clear cart
+            </Typography>
+          </Button>
+        )}
       </AppHeader>
       <Box
         sx={{
@@ -95,12 +108,22 @@ export default function OrderCartLayout({ children }) {
             fontSize={20}
             fontWeight={700}
           >
-            1 product
+            {`${order?.products.reduce(
+              (acc, item) => acc + item.quantity,
+              0
+            )} products`}
           </Typography>
         </Stack>
-        <Button size="large" color="primary" variant="contained">
-          <Typography variant="body2">Send order</Typography>
-        </Button>
+        {order?.products.length > 0 && (
+          <Button
+            size="large"
+            color="primary"
+            variant="contained"
+            onClick={handleOrder}
+          >
+            <Typography variant="body2">Send order</Typography>
+          </Button>
+        )}
       </Footer>
     </Container>
   )

@@ -1,19 +1,13 @@
-import { Stack } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
+import useOrder from 'context/Order/useOrder'
 
 import OrderCartLayout from 'features/OrderCart/components/OrderCartLayout'
 import OrderCartSummaryItem from 'features/OrderCart/components/OrderCartSummaryItem'
 import OrderTimeoutAlert from 'features/OrderCart/components/OrderTimeoutAlert'
 
-const PRODUCTS = [
-  {
-    id: '1',
-    name: 'Omelette de verduras',
-    description: 'Omelette con pimiento rojo o verde, cebolla, tomate...',
-    image: '/images/products/product_thumbnail_1.png',
-  },
-]
-
 export default function OrderCart() {
+  const { order } = useOrder()
+
   return (
     <OrderCartLayout>
       <Stack
@@ -24,11 +18,20 @@ export default function OrderCart() {
         justifyContent="space-between"
       >
         <Stack gap="8px">
-          {PRODUCTS.map((product) => (
-            <OrderCartSummaryItem key={product.id} product={product} />
+          {order?.products?.map(({ product, quantity }) => (
+            <OrderCartSummaryItem
+              key={product.id}
+              product={product}
+              quantity={quantity}
+            />
           ))}
         </Stack>
-        <OrderTimeoutAlert />
+        {order.products.length === 0 && (
+          <Typography variant="h5" color="grey.500" textAlign="center">
+            No hay productos en el carrito
+          </Typography>
+        )}
+        {order.products.length ? <OrderTimeoutAlert /> : <div />}
       </Stack>
     </OrderCartLayout>
   )

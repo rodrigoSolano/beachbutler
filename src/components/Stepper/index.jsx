@@ -3,7 +3,11 @@ import { Stack, Typography } from '@mui/material'
 import Step from './Step'
 import { Container } from './styles'
 
-export default function Stepper({ steps, isOpen }) {
+export default function Stepper({
+  steps,
+  isOpen,
+  currentStepLabel = 'Preparing',
+}) {
   const direction = isOpen ? 'column' : 'row'
   const alignItems = isOpen ? 'flex-start' : 'center'
 
@@ -21,7 +25,7 @@ export default function Stepper({ steps, isOpen }) {
       </Stack>
       {!isOpen && (
         <Typography color="primary.400" variant="body1" fontWeight={700}>
-          Preparing
+          {currentStepLabel}
         </Typography>
       )}
     </Container>

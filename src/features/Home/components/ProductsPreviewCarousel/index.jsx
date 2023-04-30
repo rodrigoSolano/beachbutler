@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import { Virtual } from 'swiper'
+import { useRouter } from 'next/router'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
@@ -37,9 +38,17 @@ const breakpoints = {
 }
 
 export default function ProductsPreviewCarousel({ section }) {
+  const router = useRouter()
   const { products, isLoading } = usePreviewProducts({
     sectionId: section.id,
   })
+
+  const handleProductClick = (product) => {
+    router.push({
+      pathname: `/productDetail`,
+      query: { id: product.id },
+    })
+  }
 
   return (
     <Box sx={{ marginLeft: '-16px', marginRight: '-16px', minHeight: 237 }}>
@@ -53,7 +62,11 @@ export default function ProductsPreviewCarousel({ section }) {
       >
         {products.map((product, index) => (
           <SwiperSlide key={product} virtualIndex={index}>
-            <ProductPreviewCard product={product} isLoading={isLoading} />
+            <ProductPreviewCard
+              product={product}
+              onClick={() => handleProductClick(product)}
+              isLoading={isLoading}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
