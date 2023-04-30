@@ -3,5 +3,6 @@
   "menu": "Menu",
   "orders": "Pedidos",
   "profile": "Perfil",
-  "searchbar_placeholder": "Encuentra tu comida o bebida favorita"
+  "searchbar_placeholder": "Encuentra tu comida o bebida favorita",
+  "rate_your_order": "Califica tu pedido"
 }
