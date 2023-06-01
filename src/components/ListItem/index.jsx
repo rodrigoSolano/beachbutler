@@ -1,22 +1,17 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import {
   Checkbox,
-  ListItem,
+  ListItem as MuiListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   useTheme,
 } from '@mui/material'
 
-export default function CustomListItem({
-  title,
-  isChecked,
-  children,
-  ...props
-}) {
+export default function ListItem({ title, isChecked, children, ...props }) {
   const theme = useTheme()
   return (
-    <ListItem
+    <MuiListItem
       sx={{
         border: `1px solid ${theme.palette.grey['60']}`,
         borderRadius: '4px',
@@ -39,6 +34,6 @@ export default function CustomListItem({
         </ListItemIcon>
         <ListItemText primary={title} color="grey.300" />
       </ListItemButton>
-    </ListItem>
+    </MuiListItem>
   )
 }

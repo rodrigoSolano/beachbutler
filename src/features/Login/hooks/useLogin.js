@@ -49,7 +49,7 @@ export default function useLogin() {
         roomNumber,
       })
       setSuccess(true)
-      router.replace('/allergies')
+      router.replace('/dietRestrictions')
       return true
     } catch (e) {
       setError(true)

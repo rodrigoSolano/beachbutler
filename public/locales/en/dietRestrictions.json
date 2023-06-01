@@ -1,6 +1,8 @@
 {
   "diet_restrictions": "Dietary restrictions",
   "diet_restrictions_instructions": "Please select if you have any dietary restrictions.",
+  "diets": "Diets",
+  "allergies": "Allergies",
   "back": "Back",
   "next": "Next",
   "skip": "Skip"

@@ -1,6 +1,8 @@
 {
   "diet_restrictions": "Restricciones dietéticas",
   "diet_restrictions_instructions": "Seleccione si tiene alguna restricción dietética.",
+  "diets": "Dietas",
+  "allergies": "Alergias",
   "back": "Regresar",
   "next": "Siguiente",
   "skip": "Saltar"

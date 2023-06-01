@@ -3,10 +3,10 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import AuthLayout from 'components/AuthLayout'
 import TopReturnBar from 'features/Profile/components/TopReturnBar'
-import CustomList from 'components/CustomList'
-import CustomListItem from 'components/CustomListItem'
+import List from 'components/List'
+import ListItem from 'components/ListItem'
 
-import getAllergiesService from 'features/Allergies/services/getAllergiesService'
+import getAllergiesService from 'features/DietRestrictions/services/getAllergiesService'
 
 export default function AllergiesAccount({ allergies = [] }) {
   return (
@@ -19,15 +19,15 @@ export default function AllergiesAccount({ allergies = [] }) {
       <Typography variant="body2" color="grey.75" mt={1}>
         Selecciona los ingredientes a los cuales eres alérgico.
       </Typography>
-      <CustomList>
+      <List>
         {allergies?.edges?.map(({ node }) => (
-          <CustomListItem
+          <ListItem
             key={node.id}
             title={node.name}
             isChecked={node.isAllergic}
           />
         ))}
-      </CustomList>
+      </List>
       <Box height={16} />
     </Box>
   )

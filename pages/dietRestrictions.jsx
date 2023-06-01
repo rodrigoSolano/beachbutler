@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { Stack, Typography, useTheme } from '@mui/material'
+import { Box, Stack, Typography, useTheme } from '@mui/material'
 
 import AppLayout from 'components/AppLayout/AppLayout'
 import AppHeader from 'components/AppLayout/AppHeader'
@@ -11,95 +11,177 @@ import AppFooter from 'components/AppLayout/AppFooter'
 import AppLogo from 'components/AppLogo'
 import NextButton from 'components/NextButton'
 
-import getAllergiesService from 'features/Allergies/services/getAllergiesService'
-import allergiesAdapter from 'features/Allergies/adapters/allergiesAdapter'
-import CustomListItem from 'components/CustomListItem'
-import CustomList from 'components/CustomList'
-import BackButton from 'components/BackButton'
+import List from 'components/List'
+import ListItem from 'components/ListItem'
 import SkipButton from 'components/SkipButton'
 
-export default function DietRestrictios({ dietRestrictions }) {
-  const [selectedDietRestrictions, setSelectedDietRestrictions] = useState([])
-  const skip = selectedDietRestrictions.length === 0
+import DietRestrictionChip from 'features/DietRestrictions/components/DietRestrictionChip'
+import DietRestrictionsGrid from 'features/DietRestrictions/components/DietRestrictionsGrid'
+
+import getAllergiesService from 'features/DietRestrictions/services/getAllergiesService'
+import getTypesOfDietService from 'features/DietRestrictions/services/getTypesOfDietService'
+import getUserDietsService from 'features/DietRestrictions/services/getUserDietsService'
+import getUserAllergiesService from 'features/DietRestrictions/services/getUserAllergiesService'
+
+export default function DietRestrictios({
+  allergies,
+  userAllergies,
+  typesOfDiet,
+  userDiets,
+}) {
+  const [selectedTypesOfDiet, setSelectedTypesOfDiet] = useState(userDiets)
+  const [selectedAllergies, setSelectedAllergies] = useState(userAllergies)
+
+  const skip = !selectedAllergies.length && !selectedTypesOfDiet.length
   const theme = useTheme()
   const router = useRouter()
   const { t } = useTranslation('dietRestrictions')
 
-  const isChecked = (dietRestriction) =>
-    selectedDietRestrictions.findIndex(
-      (selectedDietRestriction) =>
-        selectedDietRestriction.id === dietRestriction.id
+  const isTypeOfDietSelected = (typeOfDiet) =>
+    selectedTypesOfDiet.findIndex(
+      (selectedTypeOfDiet) => selectedTypeOfDiet.id === typeOfDiet.id
     ) !== -1
 
-  const handleToggle = (value) => () => {
-    const currentIndex = selectedDietRestrictions.indexOf(value)
-    const newChecked = [...selectedDietRestrictions]
+  const selectTypeOfDiet = (typeOfDiet) => () => {
+    const typeOfDietFound = selectedTypesOfDiet.find(
+      (selectedTypeOfDiet) => selectedTypeOfDiet.id === typeOfDiet.id
+    )
 
-    if (currentIndex === -1) newChecked.push(value)
-    else newChecked.splice(currentIndex, 1)
+    let newTypesOfDiet = []
 
-    setSelectedDietRestrictions(newChecked)
+    if (typeOfDietFound)
+      newTypesOfDiet = selectedTypesOfDiet.filter(
+        (_t) => _t.id !== typeOfDiet.id
+      )
+    else newTypesOfDiet = [...selectedTypesOfDiet, typeOfDiet]
+
+    setSelectedTypesOfDiet(newTypesOfDiet)
   }
 
-  const back = () => router.replace('/allergies')
+  const isAllergieSelected = (allergie) =>
+    selectedAllergies.findIndex(
+      (selectedDietRestriction) => selectedDietRestriction.id === allergie.id
+    ) !== -1
 
-  const onSkipClick = () => router.replace('/')
+  const selectAllergie = (allergy) => () => {
+    const allergyFound = selectedAllergies.find(
+      (selectedAllergie) => selectedAllergie.id === allergy.id
+    )
 
-  const onNextClick = () => router.replace('/')
+    let newAllergies = []
+
+    if (allergyFound)
+      newAllergies = selectedAllergies.filter((a) => a.id !== allergy.id)
+    else newAllergies = [...selectedAllergies, allergy]
+
+    setSelectedAllergies(newAllergies)
+  }
+
+  const handleSkipClick = () => router.replace('/')
+
+  const handleNextClick = () => router.replace('/')
 
   return (
-    <AppLayout>
-      <AppHeader
-        sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}
-      >
-        <AppLogo />
-      </AppHeader>
-      <AppBody>
-        <Typography color="gray.500" fontWeight={500} gutterBottom>
-          {t('diet_restrictions')}
-        </Typography>
-        <Typography variant="body2" color="gray.200" fontWeight={400}>
-          {t('diet_restrictions_instructions')}
-        </Typography>
-        <CustomList>
-          {dietRestrictions.map((dietRestriction) => (
-            <CustomListItem
-              key={dietRestriction.id}
-              title={dietRestriction.name}
-              onClick={handleToggle(dietRestriction)}
-              isChecked={isChecked(dietRestriction)}
+    <>
+      <AppLayout>
+        <AppHeader
+          sx={{ borderBottom: `1px solid ${theme.palette.grey['300']}` }}
+        >
+          <AppLogo />
+        </AppHeader>
+        <AppBody>
+          <Typography color="gray.500" fontWeight={500} gutterBottom>
+            {t('diet_restrictions')}
+          </Typography>
+          <Typography variant="body2" color="gray.200" fontWeight={400} mb={2}>
+            {t('diet_restrictions_instructions')}
+          </Typography>
+          <Stack direction="column" gap={2} mb={skip ? 0 : 6}>
+            <Stack direction="column">
+              <Typography variant="body1" color="grey.200" fontWeight={400}>
+                {t('diets')}
+              </Typography>
+              <List>
+                {typesOfDiet.map((typeOfDiet) => (
+                  <ListItem
+                    key={typeOfDiet.id}
+                    title={typeOfDiet.name}
+                    onClick={selectTypeOfDiet(typeOfDiet)}
+                    isChecked={isTypeOfDietSelected(typeOfDiet)}
+                  />
+                ))}
+              </List>
+            </Stack>
+            <Stack direction="column">
+              <Typography variant="body1" color="grey.200" fontWeight={400}>
+                {t('allergies')}
+              </Typography>
+              <List>
+                {allergies.map((allergy) => (
+                  <ListItem
+                    key={allergy.id}
+                    title={allergy.name}
+                    onClick={selectAllergie(allergy)}
+                    isChecked={isAllergieSelected(allergy)}
+                  />
+                ))}
+              </List>
+            </Stack>
+          </Stack>
+        </AppBody>
+        <AppFooter border shadow center>
+          <Stack
+            sx={{ width: '100%', height: '40px', padding: '16px' }}
+            gap={3}
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Box width="100%" />
+            {skip && <SkipButton title={t('skip')} onClick={handleSkipClick} />}
+            {!skip && (
+              <NextButton title={t('next')} onClick={handleNextClick} />
+            )}
+          </Stack>
+        </AppFooter>
+      </AppLayout>
+      {(selectedTypesOfDiet.length || selectedAllergies.length) && (
+        <DietRestrictionsGrid>
+          {selectedTypesOfDiet.map((typeOfDiet) => (
+            <DietRestrictionChip
+              key={`diet-${typeOfDiet.id}`}
+              label={typeOfDiet.name}
+              onDelete={selectTypeOfDiet(typeOfDiet)}
             />
           ))}
-        </CustomList>
-      </AppBody>
-      <AppFooter border shadow>
-        <Stack
-          sx={{ p: '8px' }}
-          gap={1}
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <BackButton title={t('back')} onClick={back} />
-          {skip ? (
-            <SkipButton title={t('skip')} onClick={onSkipClick} />
-          ) : (
-            <NextButton title={t('next')} onClick={onNextClick} />
-          )}
-        </Stack>
-      </AppFooter>
-    </AppLayout>
+          {selectedAllergies.map((allergie) => (
+            <DietRestrictionChip
+              key={`allergy-${allergie.id}`}
+              label={allergie.name}
+              onDelete={selectAllergie(allergie)}
+            />
+          ))}
+        </DietRestrictionsGrid>
+      )}
+    </>
   )
 }
 
 export async function getServerSideProps({ locale }) {
-  const dietRestrictionsData = await getAllergiesService({})
-  const dietRestrictions = await allergiesAdapter(dietRestrictionsData)
+  const allergies = await getAllergiesService()
+  const userAllergies = await getUserAllergiesService()
+
+  const typesOfDiet = await getTypesOfDietService()
+  const userDiets = await getUserDietsService()
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ['dietRestrictions'])),
       locale,
-      dietRestrictions,
+      typesOfDiet,
+      userDiets,
+      allergies,
+      userAllergies,
     },
   }
 }
