@@ -2,7 +2,7 @@
   "back": "Atrás",
   "next": "Siguiente",
   "one_step_login": "Inicia sesión con un solo paso",
-  "instructions_guest_data": "Si eres nuestro huésped, puedes iniciar sesión con tu apellido en tu reserva y número de habitación.",
+  "instructions_guest_data": "Estimado huésped, inicie sesión con el apellido con el que se registró y el número de su habitación.",
   "last_name": "Apellidos",
   "room_number": "Número de habitación"
 }

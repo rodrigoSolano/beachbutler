@@ -2,7 +2,7 @@
   "back": "Back",
   "next": "Next",
   "one_step_login": "One step login",
-  "instructions_guest_data": "If you are our guest, you can log in with your last name in your reservation and room number.",
+  "instructions_guest_data": "Dear guest, please login using the last name you registered with and your room number.",
   "last_name": "Last name",
   "room_number": "Room number"
 }
