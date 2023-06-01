@@ -11,6 +11,7 @@ import loginService from '../services/loginService'
  * @property {boolean} success
  * @property {boolean} error
  * @property {string} errorMessage
+ * @property {function(): void} clearError
  */
 
 /**
@@ -23,6 +24,14 @@ export default function useLogin() {
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState(null)
   const [errorMessage, setErrorMessage] = useState()
+
+  /**
+   * @description Clear error
+   * @returns {void}
+   */
+  function clearError() {
+    setError(null)
+  }
 
   /**
    * @description Login function
@@ -43,7 +52,6 @@ export default function useLogin() {
       router.replace('/allergies')
       return true
     } catch (e) {
-      setTimeout(() => setError(null), 10000)
       setError(true)
       setErrorMessage(e.message)
     } finally {
@@ -57,5 +65,6 @@ export default function useLogin() {
     success,
     error,
     errorMessage,
+    clearError,
   }
 }

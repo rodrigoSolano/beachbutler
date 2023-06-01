@@ -22,7 +22,7 @@ import useLogin from 'features/Login/hooks/useLogin'
 export default function LoginPage() {
   const { t } = useTranslation('login')
   const router = useRouter()
-  const { login, error, errorMessage } = useLogin()
+  const { login, error, errorMessage, clearError } = useLogin()
 
   const [fields, setFields] = useState({
     lastName: '',
@@ -38,6 +38,7 @@ export default function LoginPage() {
   const handleChange = (event) => {
     const { name, value } = event.target
     setFields({ ...fields, [name]: value })
+    clearError()
   }
 
   /**
