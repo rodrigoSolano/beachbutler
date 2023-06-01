@@ -111,7 +111,7 @@ export default function LoginPage() {
       {/* @ts-ignore */}
       <AppFooter border shadow center>
         <Stack
-          sx={{ width: '100%', height: '40px', padding: '8px' }}
+          sx={{ width: '100%', height: '40px', padding: '16px' }}
           gap={3}
           direction="row"
           alignItems="center"
