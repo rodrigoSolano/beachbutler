@@ -29,6 +29,8 @@ export default function LoginPage() {
     roomNumber: '',
   })
 
+  const isDisabledNextButton = !fields.lastName || !fields.roomNumber
+
   /**
    * @param {React.ChangeEvent<HTMLInputElement>} event
    * @returns {void}
@@ -110,13 +112,17 @@ export default function LoginPage() {
       <AppFooter border shadow center>
         <Stack
           sx={{ width: '100%', height: '40px', padding: '8px' }}
-          gap={1}
+          gap={3}
           direction="row"
           alignItems="center"
           justifyContent="space-between"
         >
           <BackButton title={t('back')} onClick={back} />
-          <NextButton title={t('next')} type="submit" />
+          <NextButton
+            type="submit"
+            title={t('next')}
+            disabled={isDisabledNextButton}
+          />
         </Stack>
       </AppFooter>
     </AppLayout>

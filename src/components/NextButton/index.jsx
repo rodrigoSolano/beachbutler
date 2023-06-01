@@ -7,6 +7,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
  * @property {string} title - Button title
  * @property {string} type - Button type
  * @property {function} [onClick] - Button click handler
+ * @property {boolean} [disabled] - Button disabled state
  */
 
 /**
@@ -17,6 +18,7 @@ export default function NextButton({
   type = 'button',
   title = 'Next',
   onClick = () => {},
+  disabled = false,
 }) {
   return (
     // @ts-ignore
@@ -27,6 +29,7 @@ export default function NextButton({
       variant="contained"
       endIcon={<ArrowForwardIcon fontSize="small" />}
       onClick={onClick}
+      disabled={disabled}
     >
       <Typography variant="button" fontWeight={500} textTransform="none">
         {title}
