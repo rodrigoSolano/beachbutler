@@ -1,13 +1,13 @@
 const SETTINGS = [
   {
     label: 'Mi cuenta',
-    key_translated: 'my_account',
-    path: '/profile/account',
+    key_translated: 'my_info',
+    path: '/profile/myInfo',
   },
   {
     label: 'Mis alergias',
-    key_translated: 'my_allergies',
-    path: '/profile/allergies',
+    key_translated: 'diet_restrictions',
+    path: '/profile/dietRestrictions',
   },
   // {
   //   label: 'Cambiar contraseña',

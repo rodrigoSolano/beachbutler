@@ -9,8 +9,9 @@ import AuthLayout from 'components/AuthLayout'
 import ProfileImageEditor from 'features/Profile/components/ProfileImageEditor'
 import SettingButton from 'features/Profile/components/SettingButton'
 import SETTINGS from 'features/Profile/constants/settings'
+import getProfileInformationService from 'features/Profile/services/getProfileInformationService'
 
-export default function Profile() {
+export default function Profile({ profileInformation }) {
   const { t } = useTranslation('profile')
   const router = useRouter()
 
@@ -24,7 +25,7 @@ export default function Profile() {
           {t('greeting')}
         </Typography>
         <Typography variant="h5" color="grey.300" fontWeight={700} mt={1}>
-          Apellido
+          {profileInformation?.lastName}
         </Typography>
       </Stack>
       <Stack mt={3}>
@@ -46,10 +47,12 @@ export default function Profile() {
 Profile.getLayout = (page) => <AuthLayout>{page}</AuthLayout>
 
 export async function getServerSideProps({ locale }) {
+  const profileInformation = await getProfileInformationService()
   return {
     props: {
       ...(await serverSideTranslations(locale, ['common', 'profile'])),
       locale,
+      profileInformation,
     },
   }
 }

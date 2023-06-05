@@ -5,5 +5,7 @@
   "allergies": "Alergias",
   "back": "Regresar",
   "next": "Siguiente",
-  "skip": "Saltar"
+  "skip": "Saltar",
+  "restore": "Restaurar",
+  "save": "Guardar"
 }

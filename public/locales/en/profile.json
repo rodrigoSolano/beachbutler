@@ -1,6 +1,10 @@
 {
-  "greeting": "Hello!",
-  "my_account": "My Account",
-  "my_allergies": "My Alergies",
+  "greeting": "Hi there!",
+  "my_info": "My info",
+  "diet_restrictions": "Dietary restrictions",
+  "last_name": "Last name",
+  "room_number": "Room number",
+  "phone_number": "Phone number",
+  "email": "Email",
   "language": "Language"
 }
