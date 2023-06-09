@@ -6,7 +6,7 @@ const AppFooter = styled(Box, {
 })(({ theme, border = false, shadow = false, center = false }) => ({
   width: '100%',
   height: '100%',
-  backgroundColor: theme.palette.common.white,
+  backgroundColor: 'transparent',
 
   position: 'relative',
   zIndex: 10,

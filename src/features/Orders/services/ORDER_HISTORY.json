@@ -1,0 +1,18 @@
+[
+  {
+    "id": "a9a26cdf-86bc-4110-baf2-08461d75177b",
+    "orderNumber": 672533,
+    "thumbnail": "/images/products/product_thumbnail_1.jpg",
+    "orderDate": "3/11/2023",
+    "status": "delivered",
+    "rating": 5.0
+  },
+  {
+    "id": "961f5411-7ac4-4461-b8df-3f6e479c4b91",
+    "orderNumber": 672545,
+    "thumbnail": "/images/products/product_thumbnail_2.jpg",
+    "orderDate": "4/17/2023",
+    "status": "delivered",
+    "rating": 4.5
+  }
+]

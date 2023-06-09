@@ -57,9 +57,10 @@ export default function LoginPage() {
   return (
     // @ts-ignore
     <AppLayout component="form" onSubmit={onSubmit}>
-      {/* @ts-ignore */}
-      <AppHeader showBorderBottom>
-        <AppLogo />
+      <AppHeader borderColor="grey">
+        <Stack width="100%" justifyContent="center" alignItems="center">
+          <AppLogo />
+        </Stack>
       </AppHeader>
       <AppBody>
         <Typography variant="body1" color="grey.500" fontWeight={500}>

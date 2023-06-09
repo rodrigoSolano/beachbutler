@@ -1,0 +1,13 @@
+{
+  "my_orders": "Mis Órdenes",
+  "active_orders": "Órdenes Activas",
+  "order": "Órden",
+  "placed": "Pedido realizado",
+  "being_prepared": "En preparación",
+  "on_its_way": "En camino",
+  "delivered": "Entregado",
+  "history": "Historial",
+  "total": "Total",
+  "items": "Item(s)",
+  "order_again": "Volver a ordenar"
+}

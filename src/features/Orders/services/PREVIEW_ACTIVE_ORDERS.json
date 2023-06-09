@@ -1,0 +1,16 @@
+[
+  {
+    "id": "8ac72517-8cc1-4665-a933-064bde5a3446",
+    "orderNumber": 671526,
+    "thumbnail": "/images/products/product_thumbnail_3.jpg",
+    "orderDate": "8/4/2022",
+    "status": "placed"
+  },
+  {
+    "id": "ad11a2c2-3546-435c-b212-9cd5df034089",
+    "orderNumber": 671525,
+    "thumbnail": "/images/products/product_thumbnail_4.jpg",
+    "orderDate": "9/20/2022",
+    "status": "being_prepared"
+  }
+]
